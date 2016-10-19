@@ -12,15 +12,15 @@ import org.hibernate.query.Query;
 import com.nhom28.quanlibanhang.dao.ThongTinPhanMemDao;
 import com.nhom28.quanlibanhang.pojo.ThongTinPhanMem;
 
-public class ThongTinPhanMemDaoImpl extends GenericDaoImpl<ThongTinPhanMem, Integer> implements ThongTinPhanMemDao {
+public class ThongTinPhanMemDaoImpl extends AbstractGenericDao<ThongTinPhanMem> implements ThongTinPhanMemDao {
 
 	@Override
 	public ThongTinPhanMem getThongTinPhanMem() {
-		Transaction tx = currentSession().beginTransaction(); 
+		Transaction tx = getSession().beginTransaction(); 
 		boolean flag = false;
 		ThongTinPhanMem w = null;
 		try {
-		Query query = currentSession().createQuery("from ThongTinPhanMem");
+		Query query = getSession().createQuery("from ThongTinPhanMem");
 		List<ThongTinPhanMem> list =  query.list(); 
 
 		w = (ThongTinPhanMem) list.get(0);

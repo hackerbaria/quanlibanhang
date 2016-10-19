@@ -1,8 +1,11 @@
 package com.nhom28.quanlibanhang.service;
 
+import javax.transaction.Transactional;
+
 import com.nhom28.quanlibanhang.pojo.NguoiDung;
 
-public interface NguoiDungService extends GenericService<NguoiDung, String> {
+
+public interface NguoiDungService {
 
 	/**
 	 * check user is valid or invalid
@@ -10,6 +13,7 @@ public interface NguoiDungService extends GenericService<NguoiDung, String> {
 	 * @param password
 	 * @return boolean
 	 */
+	@Transactional
 	boolean checkLogin(String username, String password);
 	
 	/**
@@ -18,5 +22,9 @@ public interface NguoiDungService extends GenericService<NguoiDung, String> {
 	 * @param password
 	 * @return boolean - true if update successful, otherwise return false
 	 */
+	@Transactional
 	boolean updatePassWord(String username, String password);
+	
+	@Transactional
+	boolean insertNguoiDung(NguoiDung ng);
 }

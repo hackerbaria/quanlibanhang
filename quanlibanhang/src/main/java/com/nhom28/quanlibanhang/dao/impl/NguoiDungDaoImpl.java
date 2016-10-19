@@ -7,14 +7,14 @@ import org.hibernate.Transaction;
 import com.nhom28.quanlibanhang.dao.NguoiDungDao;
 import com.nhom28.quanlibanhang.pojo.NguoiDung;
 
-public class NguoiDungDaoImpl extends GenericDaoImpl<NguoiDung, Integer> implements NguoiDungDao {
+public class NguoiDungDaoImpl extends AbstractGenericDao<NguoiDung> implements NguoiDungDao {
 
 	@Override
 	public boolean checkLogin(String username, String password) {
-		Transaction tx = currentSession().beginTransaction(); 
+		Transaction tx = getSession().beginTransaction(); 
 		boolean flag = false;
 		try {
-		Query employeeTaskQuery = currentSession().createQuery(
+		Query employeeTaskQuery = getSession().createQuery(
                 "select taiKhoan from NguoiDung u where taiKhoan=:username and passWord=:password");
         employeeTaskQuery.setParameter("username", username);
         employeeTaskQuery.setParameter("password", password);
@@ -30,10 +30,10 @@ public class NguoiDungDaoImpl extends GenericDaoImpl<NguoiDung, Integer> impleme
 
 	@Override
 	public boolean updatePassWord(String username, String password) {
-		Transaction tx = currentSession().beginTransaction(); 
+		Transaction tx = getSession().beginTransaction(); 
 		boolean flag = false;
 		try {
-		Query employeeTaskQuery = currentSession().createQuery(
+		Query employeeTaskQuery = getSession().createQuery(
                 "update NguoiDung set passWord=:password "
                 + "where taiKhoan=:username");
         employeeTaskQuery.setParameter("username", username);
