@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 17, 2016 12:29:30 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="BoPhan" table="bo_phan" catalog="quanlibanhang">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="tenBoPhan" type="string">
+            <column name="ten_bo_phan" not-null="true" />
+        </property>
+        <property name="idNguoiQuanLy" type="int">
+            <column name="id_nguoi_quan_ly" not-null="true" />
+        </property>
+        <set name="nhanViens" table="nhan_vien" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_bo_phan" not-null="true" />
+            </key>
+            <one-to-many class="NhanVien" />
+        </set>
+    </class>
+</hibernate-mapping>

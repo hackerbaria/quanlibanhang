@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 17, 2016 12:29:30 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="NhanVien" table="nhan_vien" catalog="quanlibanhang">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="boPhan" class="BoPhan" fetch="select">
+            <column name="id_bo_phan" not-null="true" />
+        </many-to-one>
+        <property name="tenDayDu" type="string">
+            <column name="ten_day_du" not-null="true" />
+        </property>
+        <property name="ngaySinh" type="date">
+            <column name="ngay_sinh" length="10" not-null="true" />
+        </property>
+        <property name="diaChi" type="string">
+            <column name="dia_chi" not-null="true" />
+        </property>
+        <property name="dienThoai" type="string">
+            <column name="dien_thoai" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" not-null="true" />
+        </property>
+        <property name="gioiTinh" type="int">
+            <column name="gioi_tinh" not-null="true" />
+        </property>
+        <property name="ngayBatDau" type="date">
+            <column name="ngay_bat_dau" length="10" not-null="true" />
+        </property>
+        <property name="loaiNhanVien" type="int">
+            <column name="loai_nhan_vien" not-null="true" />
+        </property>
+        <set name="khuVucs" table="khu_vuc" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_nguoi_quan_ly" not-null="true" />
+            </key>
+            <one-to-many class="KhuVuc" />
+        </set>
+        <set name="khuVucs_1" table="khu_vuc" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_nguoi_quan_ly" not-null="true" />
+            </key>
+            <one-to-many class="KhuVuc" />
+        </set>
+        <set name="khos" table="kho" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_nhan_vien_quan_ly" not-null="true" />
+            </key>
+            <one-to-many class="Kho" />
+        </set>
+        <set name="nguoiDungs" table="nguoi_dung" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_nhan_vien" not-null="true" />
+            </key>
+            <one-to-many class="NguoiDung" />
+        </set>
+    </class>
+</hibernate-mapping>

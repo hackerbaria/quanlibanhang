@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/quanlibanhang</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.default_schema">quanlibanhang</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    	<!-- Map files -->
+    	<mapping resource="com/nhom28/quanlibanhang/BoPhan.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/HangHoa.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/HoaDon.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/KhachHang.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/Kho.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/KhuVuc.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/LichSuBanHang.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/LoaiHangHoa.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/NguoiDung.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/NhanVien.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/NhaPhanPhoi.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/NhatKyHeThong.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/NhomHang.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/PhanQuyen.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/ThongTinPhanMem.hbm.xml" />
+    
+    </session-factory>
+</hibernate-configuration>

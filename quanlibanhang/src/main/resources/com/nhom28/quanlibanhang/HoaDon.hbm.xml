@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 17, 2016 12:29:30 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="HoaDon" table="hoa_don" catalog="quanlibanhang">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="khachHang" class="KhachHang" fetch="select">
+            <column name="id_khach_hang" not-null="true" />
+        </many-to-one>
+        <many-to-one name="hangHoa" class="HangHoa" fetch="select">
+            <column name="id_hang_hoa" not-null="true" />
+        </many-to-one>
+        <property name="giaBan" type="int">
+            <column name="gia_ban" not-null="true" />
+        </property>
+        <property name="khuyenMai" type="int">
+            <column name="khuyen_mai" not-null="true" />
+        </property>
+        <property name="soLuong" type="int">
+            <column name="so_luong" not-null="true" />
+        </property>
+        <property name="thanhTien" type="int">
+            <column name="thanh_tien" not-null="true" />
+        </property>
+        <property name="thongTinGiaoHang" type="string">
+            <column name="thong_tin_giao_hang" not-null="true" />
+        </property>
+        <property name="ngayLapHoaDon" type="date">
+            <column name="ngay_lap_hoa_don" length="10" not-null="true" />
+        </property>
+        <set name="lichSuBanHangs" table="lich_su_ban_hang" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_hoa_don" not-null="true" />
+            </key>
+            <one-to-many class="LichSuBanHang" />
+        </set>
+    </class>
+</hibernate-mapping>

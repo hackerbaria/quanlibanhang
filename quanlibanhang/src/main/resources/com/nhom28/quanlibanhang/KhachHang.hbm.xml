@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 17, 2016 12:29:30 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="KhachHang" table="khach_hang" catalog="quanlibanhang">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="khuVuc" class="KhuVuc" fetch="select">
+            <column name="id_khu_vuc" not-null="true" />
+        </many-to-one>
+        <property name="tenKhachHang" type="string">
+            <column name="ten_khach_hang" not-null="true" />
+        </property>
+        <property name="ngaySinh" type="date">
+            <column name="ngay_sinh" length="10" not-null="true" />
+        </property>
+        <property name="diaChi" type="string">
+            <column name="dia_chi" not-null="true" />
+        </property>
+        <property name="dienThoai" type="string">
+            <column name="dien_thoai" not-null="true" />
+        </property>
+        <property name="cmnd" type="string">
+            <column name="cmnd" not-null="true" />
+        </property>
+        <property name="gioiTinh" type="int">
+            <column name="gioi_tinh" not-null="true" />
+        </property>
+        <property name="ngayBatDau" type="date">
+            <column name="ngay_bat_dau" length="10" not-null="true" />
+        </property>
+        <property name="ngayGiaoDichGanNhat" type="date">
+            <column name="ngay_giao_dich_gan_nhat" length="10" not-null="true" />
+        </property>
+        <property name="thongTinLienQuan" type="string">
+            <column name="thong_tin_lien_quan" not-null="true" />
+        </property>
+        <set name="hoaDons" table="hoa_don" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_khach_hang" not-null="true" />
+            </key>
+            <one-to-many class="HoaDon" />
+        </set>
+    </class>
+</hibernate-mapping>

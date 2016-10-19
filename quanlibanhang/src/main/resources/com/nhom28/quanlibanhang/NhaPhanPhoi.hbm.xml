@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 17, 2016 12:29:30 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="NhaPhanPhoi" table="nha_phan_phoi" catalog="quanlibanhang">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="khuVuc" class="KhuVuc" fetch="select">
+            <column name="id_khu_vuc" not-null="true" />
+        </many-to-one>
+        <property name="tenNhaPhanPhoi" type="string">
+            <column name="ten_nha_phan_phoi" not-null="true" />
+        </property>
+        <property name="ngayKyHopDong" type="date">
+            <column name="ngay_ky_hop_dong" length="10" not-null="true" />
+        </property>
+        <property name="diaChi" type="string">
+            <column name="dia_chi" not-null="true" />
+        </property>
+        <property name="dienThoai" type="string">
+            <column name="dien_thoai" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" not-null="true" />
+        </property>
+        <property name="nguoiDaiDien" type="string">
+            <column name="nguoi_dai_dien" not-null="true" />
+        </property>
+        <property name="ngayGiaoDichGanNhat" type="date">
+            <column name="ngay_giao_dich_gan_nhat" length="10" not-null="true" />
+        </property>
+        <property name="chietKhau" type="int">
+            <column name="chiet_khau" not-null="true" />
+        </property>
+        <property name="thongTinLienQuan" type="string">
+            <column name="thong_tin_lien_quan" not-null="true" />
+        </property>
+        <set name="hangHoas" table="hang_hoa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_nha_phan_phoi" not-null="true" />
+            </key>
+            <one-to-many class="HangHoa" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 17, 2016 12:29:30 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="ThongTinPhanMem" table="thong_tin_phan_mem" catalog="quanlibanhang">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="tenDonVi" type="string">
+            <column name="ten_don_vi" not-null="true" />
+        </property>
+        <property name="diaChi" type="string">
+            <column name="dia_chi" not-null="true" />
+        </property>
+        <property name="dienThoai" type="string">
+            <column name="dien_thoai" not-null="true" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" not-null="true" />
+        </property>
+        <property name="website" type="string">
+            <column name="website" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" not-null="true" />
+        </property>
+        <property name="linhVuc" type="string">
+            <column name="linh_vuc" not-null="true" />
+        </property>
+        <property name="maSoThue" type="string">
+            <column name="ma_so_thue" not-null="true" />
+        </property>
+        <property name="gpkd" type="string">
+            <column name="gpkd" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

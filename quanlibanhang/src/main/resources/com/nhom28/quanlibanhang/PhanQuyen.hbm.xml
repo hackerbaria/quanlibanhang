@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 17, 2016 12:29:30 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="PhanQuyen" table="phan_quyen" catalog="quanlibanhang">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="dienGiai" type="string">
+            <column name="dien_giai" not-null="true" />
+        </property>
+        <property name="ten" type="string">
+            <column name="ten" not-null="true" />
+        </property>
+        <property name="heThong" type="string">
+            <column name="he_thong" not-null="true" />
+        </property>
+        <property name="baoMat" type="string">
+            <column name="bao_mat" not-null="true" />
+        </property>
+        <property name="duLieu" type="string">
+            <column name="du_lieu" not-null="true" />
+        </property>
+        <set name="nguoiDungs" table="nguoi_dung" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_phan_quyen" not-null="true" />
+            </key>
+            <one-to-many class="NguoiDung" />
+        </set>
+    </class>
+</hibernate-mapping>
