@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 17, 2016 12:29:30 AM by Hibernate Tools 3.4.0.CR1 -->
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 19, 2016 10:57:01 PM by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="BoPhan" table="bo_phan" catalog="quanlibanhang">
+    <class name="com.nhom28.quanlibanhang.pojo.BoPhan" table="bo_phan" catalog="quanlibanhang">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
@@ -18,7 +18,7 @@
             <key>
                 <column name="id_bo_phan" not-null="true" />
             </key>
-            <one-to-many class="NhanVien" />
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.NhanVien" />
         </set>
     </class>
 </hibernate-mapping>

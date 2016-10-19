@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 17, 2016 12:29:30 AM by Hibernate Tools 3.4.0.CR1 -->
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 19, 2016 10:57:01 PM by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="Kho" table="kho" catalog="quanlibanhang">
+    <class name="com.nhom28.quanlibanhang.pojo.Kho" table="kho" catalog="quanlibanhang">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="nhanVien" class="NhanVien" fetch="select">
+        <many-to-one name="nhanVien" class="com.nhom28.quanlibanhang.pojo.NhanVien" fetch="select">
             <column name="id_nhan_vien_quan_ly" not-null="true" />
         </many-to-one>
         <property name="tenKho" type="string">
@@ -21,7 +21,7 @@
             <key>
                 <column name="id_kho" not-null="true" />
             </key>
-            <one-to-many class="HangHoa" />
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.HangHoa" />
         </set>
     </class>
 </hibernate-mapping>

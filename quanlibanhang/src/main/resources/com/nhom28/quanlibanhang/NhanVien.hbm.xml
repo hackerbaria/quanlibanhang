@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 17, 2016 12:29:30 AM by Hibernate Tools 3.4.0.CR1 -->
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 19, 2016 10:57:01 PM by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="NhanVien" table="nhan_vien" catalog="quanlibanhang">
+    <class name="com.nhom28.quanlibanhang.pojo.NhanVien" table="nhan_vien" catalog="quanlibanhang">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="boPhan" class="BoPhan" fetch="select">
+        <many-to-one name="boPhan" class="com.nhom28.quanlibanhang.pojo.BoPhan" fetch="select">
             <column name="id_bo_phan" not-null="true" />
         </many-to-one>
         <property name="tenDayDu" type="string">
@@ -39,25 +39,25 @@
             <key>
                 <column name="id_nguoi_quan_ly" not-null="true" />
             </key>
-            <one-to-many class="KhuVuc" />
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.KhuVuc" />
         </set>
         <set name="khuVucs_1" table="khu_vuc" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_nguoi_quan_ly" not-null="true" />
             </key>
-            <one-to-many class="KhuVuc" />
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.KhuVuc" />
         </set>
         <set name="khos" table="kho" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_nhan_vien_quan_ly" not-null="true" />
             </key>
-            <one-to-many class="Kho" />
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.Kho" />
         </set>
         <set name="nguoiDungs" table="nguoi_dung" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_nhan_vien" not-null="true" />
             </key>
-            <one-to-many class="NguoiDung" />
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.NguoiDung" />
         </set>
     </class>
 </hibernate-mapping>

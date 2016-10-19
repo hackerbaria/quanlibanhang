@@ -1,7 +1,7 @@
 package com.nhom28.quanlibanhang.pojo;
 
 // default package
-// Generated Oct 17, 2016 12:29:30 AM by Hibernate Tools 3.4.0.CR1
+// Generated Oct 19, 2016 10:56:54 PM by Hibernate Tools 4.0.0
 
 import java.util.Date;
 import java.util.HashSet;

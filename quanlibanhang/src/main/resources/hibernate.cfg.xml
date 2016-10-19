@@ -7,9 +7,14 @@
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/quanlibanhang</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.default_schema">quanlibanhang</property>
+        <property name="hibernate.default_schema">quanlibanghang</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    	<!-- Map files -->
+        <property name="show_sql">true</property>
+	    <property name="format_sql">true</property>
+	    <property name="use_sql_comments">false</property>
+	    <property name="hibernate.current_session_context_class">thread</property>
+	    
+	    <!-- Map files -->
     	<mapping resource="com/nhom28/quanlibanhang/BoPhan.hbm.xml" />
     	<mapping resource="com/nhom28/quanlibanhang/HangHoa.hbm.xml" />
     	<mapping resource="com/nhom28/quanlibanhang/HoaDon.hbm.xml" />
@@ -25,6 +30,5 @@
     	<mapping resource="com/nhom28/quanlibanhang/NhomHang.hbm.xml" />
     	<mapping resource="com/nhom28/quanlibanhang/PhanQuyen.hbm.xml" />
     	<mapping resource="com/nhom28/quanlibanhang/ThongTinPhanMem.hbm.xml" />
-    
     </session-factory>
 </hibernate-configuration>

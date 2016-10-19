@@ -5,11 +5,18 @@
  */
 package com.nhom28.quanlibanhang.ui;
 
+import com.nhom28.quanlibanhang.common.DialogMessages;
+import com.nhom28.quanlibanhang.common.GlobalVariables;
+import com.nhom28.quanlibanhang.service.NguoiDungService;
+import com.nhom28.quanlibanhang.service.impl.NguoiDungServiceImpl;
+
 /**
  *
  * @author lehuyen
  */
 public class DangNhap extends javax.swing.JFrame {
+	
+	NguoiDungService nguoiDungService = new NguoiDungServiceImpl();
 
     /**
      * Creates new form DangNhap
@@ -121,7 +128,19 @@ public class DangNhap extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-         System.out.println("Hello Login");
+    	String username = txtUsername.getText();
+		String password = txtPassword.getText();
+		if (nguoiDungService.checkLogin(username, password)) {
+			GlobalVariables.CURRENT_USER_NAME = username;
+			DialogMessages.infoBox("Dang Nhap thanh cong", "Thanh Cong!");
+			DoiMatKhau doiMatKhauFrame = new DoiMatKhau();
+			doiMatKhauFrame.setVisible(true);
+			
+			setVisible(false);
+	    	dispose();
+		} else {
+			DialogMessages.errorBox("Dang Nhap that bai, xin vui long thu lai", "That bai!");
+		}
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnCanCelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCanCelActionPerformed

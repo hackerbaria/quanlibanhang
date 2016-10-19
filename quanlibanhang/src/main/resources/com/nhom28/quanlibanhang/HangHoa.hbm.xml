@@ -1,23 +1,23 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 17, 2016 12:29:30 AM by Hibernate Tools 3.4.0.CR1 -->
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 19, 2016 10:57:01 PM by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="HangHoa" table="hang_hoa" catalog="quanlibanhang">
+    <class name="com.nhom28.quanlibanhang.pojo.HangHoa" table="hang_hoa" catalog="quanlibanhang">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="loaiHangHoa" class="LoaiHangHoa" fetch="select">
+        <many-to-one name="loaiHangHoa" class="com.nhom28.quanlibanhang.pojo.LoaiHangHoa" fetch="select">
             <column name="id_loai_hang_hoa" not-null="true" />
         </many-to-one>
-        <many-to-one name="nhaPhanPhoi" class="NhaPhanPhoi" fetch="select">
+        <many-to-one name="nhaPhanPhoi" class="com.nhom28.quanlibanhang.pojo.NhaPhanPhoi" fetch="select">
             <column name="id_nha_phan_phoi" not-null="true" />
         </many-to-one>
-        <many-to-one name="nhomHang" class="NhomHang" fetch="select">
+        <many-to-one name="nhomHang" class="com.nhom28.quanlibanhang.pojo.NhomHang" fetch="select">
             <column name="id_nhom_hang" not-null="true" />
         </many-to-one>
-        <many-to-one name="kho" class="Kho" fetch="select">
+        <many-to-one name="kho" class="com.nhom28.quanlibanhang.pojo.Kho" fetch="select">
             <column name="id_kho" not-null="true" />
         </many-to-one>
         <property name="giaNhap" type="int">
@@ -45,13 +45,13 @@
             <key>
                 <column name="id_hang_hoa" not-null="true" />
             </key>
-            <one-to-many class="HoaDon" />
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.HoaDon" />
         </set>
         <set name="lichSuBanHangs" table="lich_su_ban_hang" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_hang_hoa" not-null="true" />
             </key>
-            <one-to-many class="LichSuBanHang" />
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.LichSuBanHang" />
         </set>
     </class>
 </hibernate-mapping>
