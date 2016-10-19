@@ -5,11 +5,16 @@
  */
 package com.nhom28.quanlibanhang.ui;
 
+import com.nhom28.quanlibanhang.service.ThongTinPhanMemService;
+import com.nhom28.quanlibanhang.service.impl.ThongTinPhanMemServiceImpl;
+
 /**
  *
  * @author Google
  */
 public class ThongTinPhanMem extends javax.swing.JFrame {
+	
+	ThongTinPhanMemService service = new ThongTinPhanMemServiceImpl();
 
     /**
      * Creates new form ThongTinPhanMem
@@ -26,6 +31,8 @@ public class ThongTinPhanMem extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+    	
+    	com.nhom28.quanlibanhang.pojo.ThongTinPhanMem infor = service.getThongTinPhanMem();
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -74,7 +81,7 @@ public class ThongTinPhanMem extends javax.swing.JFrame {
         jLabel10.setText("GPKD");
 
         txtTenDonVi.setEditable(false);
-        txtTenDonVi.setText("Ten Don Vi");
+        txtTenDonVi.setText(infor.getTenDonVi());
         txtTenDonVi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTenDonViActionPerformed(evt);
@@ -82,25 +89,25 @@ public class ThongTinPhanMem extends javax.swing.JFrame {
         });
 
         txtDiaChi.setEditable(false);
-        txtDiaChi.setText("Dien Chi");
+        txtDiaChi.setText(infor.getDiaChi());
 
         txtDienThoai.setEditable(false);
-        txtDienThoai.setText("Dien Thoai");
+        txtDienThoai.setText(infor.getDienThoai());
 
         txtFax.setEditable(false);
-        txtFax.setText("Fax");
+        txtFax.setText(infor.getFax());
 
         txtWebsite.setEditable(false);
-        txtWebsite.setText("Website");
+        txtWebsite.setText(infor.getWebsite());
 
         txtEmail.setEditable(false);
-        txtEmail.setText("Email");
+        txtEmail.setText(infor.getEmail());
 
         txtLinhVuc.setEditable(false);
-        txtLinhVuc.setText("Linh Vuc");
+        txtLinhVuc.setText(infor.getLinhVuc());
 
         txtMaSoThue.setEditable(false);
-        txtMaSoThue.setText("Ma So Thue");
+        txtMaSoThue.setText(infor.getMaSoThue());
 
         btnDongY.setText("Đồng Ý");
 
@@ -108,6 +115,8 @@ public class ThongTinPhanMem extends javax.swing.JFrame {
 
         txtGPKD.setEditable(false);
         txtGPKD.setText("GPKD");
+        
+        
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

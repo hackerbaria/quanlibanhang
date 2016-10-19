@@ -5,6 +5,10 @@
  */
 package com.nhom28.quanlibanhang.ui;
 
+import java.util.prefs.Preferences;
+
+import javax.swing.SwingWorker;
+
 import com.nhom28.quanlibanhang.common.DialogMessages;
 import com.nhom28.quanlibanhang.common.GlobalVariables;
 import com.nhom28.quanlibanhang.service.NguoiDungService;
@@ -17,12 +21,37 @@ import com.nhom28.quanlibanhang.service.impl.NguoiDungServiceImpl;
 public class DangNhap extends javax.swing.JFrame {
 	
 	NguoiDungService nguoiDungService = new NguoiDungServiceImpl();
+	
+	
+	 Preferences prefs = Preferences.userNodeForPackage(DangNhap.class);
 
     /**
      * Creates new form DangNhap
      */
     public DangNhap() {
         initComponents();
+        String userName = prefs.get("user", "");
+        if(!userName.equals("")){
+            this.txtUsername.setText(userName);
+        }
+        String passName = prefs.get("pass", "");
+        if(!passName.equals("")){
+            this.txtPassword.setText(passName);
+        }
+    }
+    
+ // Process in background
+    public class DoLogin extends SwingWorker{
+        public void done(){
+            // On successfull login save user data
+            prefs.put("user", txtUsername.getText());
+            prefs.put("pass", txtPassword.getText());
+        }
+
+        public String doInBackground(){
+			return null;
+            // Process login
+        }
     }
 
     /**
@@ -130,6 +159,13 @@ public class DangNhap extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
     	String username = txtUsername.getText();
 		String password = txtPassword.getText();
+		
+		if(jcheckboxRemember.isSelected() && !jcheckboxRemember.getText().isEmpty()) {
+			DoLogin log = new DoLogin();
+	        log.done();
+		}
+       
+		
 		if (nguoiDungService.checkLogin(username, password)) {
 			GlobalVariables.CURRENT_USER_NAME = username;
 			DialogMessages.infoBox("Dang Nhap thanh cong", "Thanh Cong!");
