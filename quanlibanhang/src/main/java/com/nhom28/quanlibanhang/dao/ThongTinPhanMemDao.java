@@ -1,9 +1,9 @@
 package com.nhom28.quanlibanhang.dao;
 
-import com.nhom28.quanlibanhang.pojo.ThongTinPhanMem;
+import com.nhom28.quanlibanhang.pojo.ThongTinDonViSuDung;
 
-public interface ThongTinPhanMemDao extends GenericDao<ThongTinPhanMem> {
+public interface ThongTinPhanMemDao extends GenericDao<ThongTinDonViSuDung> {
 	
-	ThongTinPhanMem getThongTinPhanMem();
+	ThongTinDonViSuDung getThongTinPhanMem();
 
 }

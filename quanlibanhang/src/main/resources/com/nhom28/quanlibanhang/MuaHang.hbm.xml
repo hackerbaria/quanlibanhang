@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 20, 2016 9:05:40 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.nhom28.quanlibanhang.pojo.MuaHang" table="mua_hang" catalog="quanlibanhang">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="idNhaPhanPhoi" type="int">
+            <column name="id_nha_phan_phoi" not-null="true" />
+        </property>
+        <property name="ghiChu" type="string">
+            <column name="ghi_chu" />
+        </property>
+        <property name="dieuKhoanThanhToan" type="string">
+            <column name="dieu_khoan_thanh_toan" />
+        </property>
+        <property name="ngayThanhToan" type="date">
+            <column name="ngay_thanh_toan" length="10" not-null="true" />
+        </property>
+        <property name="tongSoLuong" type="long">
+            <column name="tong_so_luong" not-null="true" />
+        </property>
+        <property name="tongThanhTien" type="double">
+            <column name="tong_thanh_tien" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="tongThanhToan" type="double">
+            <column name="tong_thanh_toan" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="ngayNhap" type="date">
+            <column name="ngay_nhap" length="10" not-null="true" />
+        </property>
+        <set name="chiTietMuaHangs" table="chi_tiet_mua_hang" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_mua_hang" not-null="true" />
+            </key>
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.ChiTietMuaHang" />
+        </set>
+        <set name="phieuMuaHangs" table="phieu_mua_hang" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_mua_hang" not-null="true" />
+            </key>
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.PhieuMuaHang" />
+        </set>
+        <set name="phieuChis" table="phieu_chi" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_mua_hang" not-null="true" />
+            </key>
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.PhieuChi" />
+        </set>
+    </class>
+</hibernate-mapping>

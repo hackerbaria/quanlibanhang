@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 20, 2016 9:05:40 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.nhom28.quanlibanhang.pojo.BanHang" table="ban_hang" catalog="quanlibanhang">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="idKhachHang" type="int">
+            <column name="id_khach_hang" not-null="true" />
+        </property>
+        <property name="ghiChu" type="string">
+            <column name="ghi_chu" length="65535" />
+        </property>
+        <property name="tienKhauTru" type="java.lang.Double">
+            <column name="tien_khau_tru" precision="22" scale="0" />
+        </property>
+        <property name="ngay" type="date">
+            <column name="ngay" length="10" not-null="true" />
+        </property>
+        <property name="tongTien" type="double">
+            <column name="tong_tien" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="tienConNo" type="double">
+            <column name="tien_con_no" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="tienTra" type="double">
+            <column name="tien_tra" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="tienConLai" type="double">
+            <column name="tien_con_lai" precision="22" scale="0" not-null="true" />
+        </property>
+         <property name="ngayGiao" type="date">
+            <column name="ngay_giao" length="10" not-null="true" />
+        </property>
+        <set name="phieuBanHangs" table="phieu_ban_hang" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ban_hang" not-null="true" />
+            </key>
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.PhieuBanHang" />
+        </set>
+        <set name="phieuThus" table="phieu_thu" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ban_hang" not-null="true" />
+            </key>
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.PhieuThu" />
+        </set>
+        <set name="chiTietBanHangs" table="chi_tiet_ban_hang" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ban_hang" not-null="true" />
+            </key>
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.ChiTietBanHang" />
+        </set>
+    </class>
+</hibernate-mapping>

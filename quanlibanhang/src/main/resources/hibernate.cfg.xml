@@ -15,20 +15,32 @@
 	    <property name="hibernate.current_session_context_class">thread</property>
 	    
 	    <!-- Map files -->
+    	<mapping resource="com/nhom28/quanlibanhang/BanHang.hbm.xml" />
     	<mapping resource="com/nhom28/quanlibanhang/BoPhan.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/ChiTietBanHang.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/ChiTietChuyenKho.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/ChiTietMuaHang.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/ChuyenKho.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/DonViTinh.hbm.xml" />
     	<mapping resource="com/nhom28/quanlibanhang/HangHoa.hbm.xml" />
-    	<mapping resource="com/nhom28/quanlibanhang/HoaDon.hbm.xml" />
     	<mapping resource="com/nhom28/quanlibanhang/KhachHang.hbm.xml" />
     	<mapping resource="com/nhom28/quanlibanhang/Kho.hbm.xml" />
     	<mapping resource="com/nhom28/quanlibanhang/KhuVuc.hbm.xml" />
-    	<mapping resource="com/nhom28/quanlibanhang/LichSuBanHang.hbm.xml" />
-    	<mapping resource="com/nhom28/quanlibanhang/LoaiHangHoa.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/LichSuHangHoa.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/MuaHang.hbm.xml" />
     	<mapping resource="com/nhom28/quanlibanhang/NguoiDung.hbm.xml" />
-    	<mapping resource="com/nhom28/quanlibanhang/NhanVien.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/NhanVien.hbm.xml" />    	
     	<mapping resource="com/nhom28/quanlibanhang/NhaPhanPhoi.hbm.xml" />
     	<mapping resource="com/nhom28/quanlibanhang/NhatKyHeThong.hbm.xml" />
     	<mapping resource="com/nhom28/quanlibanhang/NhomHang.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/NhomNguoiDung.hbm.xml" />
     	<mapping resource="com/nhom28/quanlibanhang/PhanQuyen.hbm.xml" />
-    	<mapping resource="com/nhom28/quanlibanhang/ThongTinPhanMem.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/PhieuBanHang.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/PhieuChi.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/PhieuMuaHang.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/PhieuThu.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/SoDuDauKy.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/ThongTinDonViSuDung.hbm.xml" />
+    	<mapping resource="com/nhom28/quanlibanhang/TyGia.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

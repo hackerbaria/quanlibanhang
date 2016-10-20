@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 19, 2016 10:57:01 PM by Hibernate Tools 4.0.0 -->
+<!-- Generated Oct 20, 2016 9:05:40 PM by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="com.nhom28.quanlibanhang.pojo.Kho" table="kho" catalog="quanlibanhang">
         <id name="id" type="java.lang.Integer">
@@ -9,19 +9,64 @@
             <generator class="identity" />
         </id>
         <many-to-one name="nhanVien" class="com.nhom28.quanlibanhang.pojo.NhanVien" fetch="select">
-            <column name="id_nhan_vien_quan_ly" not-null="true" />
+            <column name="id_nguoi_quan_ly" not-null="true" />
         </many-to-one>
+        <property name="maKho" type="string">
+            <column name="ma_kho" not-null="true" />
+        </property>
         <property name="tenKho" type="string">
             <column name="ten_kho" not-null="true" />
         </property>
-        <property name="thongTinKho" type="string">
-            <column name="thong_tin_kho" not-null="true" />
+        <property name="idNguoiLienHe" type="int">
+            <column name="id_nguoi_lien_he" not-null="true" />
         </property>
-        <set name="hangHoas" table="hang_hoa" inverse="true" lazy="true" fetch="select">
+        <property name="nguoiLienHe" type="string">
+            <column name="nguoi_lien_he" not-null="true" />
+        </property>
+        <property name="diaChi" type="string">
+            <column name="dia_chi" length="65535" />
+        </property>
+        <property name="dienThoai" type="string">
+            <column name="dien_thoai" />
+        </property>
+        <property name="diDong" type="string">
+            <column name="di_dong" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" />
+        </property>
+        <property name="dienGiai" type="string">
+            <column name="dien_giai" length="65535" />
+        </property>
+        <property name="conQuanLy" type="byte">
+            <column name="con_quan_ly" not-null="true" />
+        </property>
+        <set name="chiTietBanHangs" table="chi_tiet_ban_hang" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_kho" not-null="true" />
             </key>
-            <one-to-many class="com.nhom28.quanlibanhang.pojo.HangHoa" />
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.ChiTietBanHang" />
+        </set>
+        <set name="chiTietMuaHangs" table="chi_tiet_mua_hang" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_kho" not-null="true" />
+            </key>
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.ChiTietMuaHang" />
+        </set>
+        <set name="chuyenKhosForIdKhoXuat" table="chuyen_kho" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_kho_xuat" not-null="true" />
+            </key>
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.ChuyenKho" />
+        </set>
+        <set name="chuyenKhosForIdKhoNhap" table="chuyen_kho" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_kho_nhap" not-null="true" />
+            </key>
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.ChuyenKho" />
         </set>
     </class>
 </hibernate-mapping>

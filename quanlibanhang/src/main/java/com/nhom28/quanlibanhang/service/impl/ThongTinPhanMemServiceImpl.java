@@ -2,7 +2,7 @@ package com.nhom28.quanlibanhang.service.impl;
 
 import com.nhom28.quanlibanhang.dao.ThongTinPhanMemDao;
 import com.nhom28.quanlibanhang.dao.impl.ThongTinPhanMemDaoImpl;
-import com.nhom28.quanlibanhang.pojo.ThongTinPhanMem;
+import com.nhom28.quanlibanhang.pojo.ThongTinDonViSuDung;
 import com.nhom28.quanlibanhang.service.ThongTinPhanMemService;
 
 public class ThongTinPhanMemServiceImpl implements ThongTinPhanMemService {
@@ -15,7 +15,7 @@ public class ThongTinPhanMemServiceImpl implements ThongTinPhanMemService {
 	}
 
 	@Override
-	public ThongTinPhanMem getThongTinPhanMem() {
+	public ThongTinDonViSuDung getThongTinPhanMem() {
 		return dao.getThongTinPhanMem();
 	}
 

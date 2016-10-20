@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 19, 2016 10:57:01 PM by Hibernate Tools 4.0.0 -->
+<!-- Generated Oct 20, 2016 9:05:40 PM by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="com.nhom28.quanlibanhang.pojo.KhachHang" table="khach_hang" catalog="quanlibanhang">
         <id name="id" type="java.lang.Integer">
@@ -11,38 +11,62 @@
         <many-to-one name="khuVuc" class="com.nhom28.quanlibanhang.pojo.KhuVuc" fetch="select">
             <column name="id_khu_vuc" not-null="true" />
         </many-to-one>
+        <property name="maKhachHang" type="string">
+            <column name="ma_khach_hang" not-null="true" />
+        </property>
         <property name="tenKhachHang" type="string">
             <column name="ten_khach_hang" not-null="true" />
         </property>
-        <property name="ngaySinh" type="date">
-            <column name="ngay_sinh" length="10" not-null="true" />
-        </property>
         <property name="diaChi" type="string">
-            <column name="dia_chi" not-null="true" />
+            <column name="dia_chi" length="65535" />
+        </property>
+        <property name="maSoThue" type="string">
+            <column name="ma_so_thue" not-null="true" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" not-null="true" />
         </property>
         <property name="dienThoai" type="string">
             <column name="dien_thoai" not-null="true" />
         </property>
-        <property name="cmnd" type="string">
-            <column name="cmnd" not-null="true" />
+        <property name="diDong" type="string">
+            <column name="di_dong" not-null="true" />
         </property>
-        <property name="gioiTinh" type="int">
-            <column name="gioi_tinh" not-null="true" />
+        <property name="email" type="string">
+            <column name="email" />
         </property>
-        <property name="ngayBatDau" type="date">
-            <column name="ngay_bat_dau" length="10" not-null="true" />
+        <property name="website" type="string">
+            <column name="website" />
         </property>
-        <property name="ngayGiaoDichGanNhat" type="date">
-            <column name="ngay_giao_dich_gan_nhat" length="10" not-null="true" />
+        <property name="soTaiKhoan" type="string">
+            <column name="so_tai_khoan" not-null="true" />
         </property>
-        <property name="thongTinLienQuan" type="string">
-            <column name="thong_tin_lien_quan" not-null="true" />
+        <property name="nganHang" type="string">
+            <column name="ngan_hang" not-null="true" />
         </property>
-        <set name="hoaDons" table="hoa_don" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_khach_hang" not-null="true" />
-            </key>
-            <one-to-many class="com.nhom28.quanlibanhang.pojo.HoaDon" />
-        </set>
+        <property name="gioiHanNo" type="double">
+            <column name="gioi_han_no" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="noHienTai" type="double">
+            <column name="no_hien_tai" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="chietKhau" type="float">
+            <column name="chiet_khau" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="nguoiLienHe" type="string">
+            <column name="nguoi_lien_he" />
+        </property>
+        <property name="nickYahoo" type="string">
+            <column name="nick_yahoo" />
+        </property>
+        <property name="nickSkype" type="string">
+            <column name="nick_skype" />
+        </property>
+        <property name="laDaiLy" type="byte">
+            <column name="la_dai_ly" not-null="true" />
+        </property>
+        <property name="conQuanLy" type="byte">
+            <column name="con_quan_ly" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

@@ -1,9 +1,8 @@
 package com.nhom28.quanlibanhang.pojo;
 
 // default package
-// Generated Oct 19, 2016 10:56:54 PM by Hibernate Tools 4.0.0
+// Generated Oct 20, 2016 9:05:28 PM by Hibernate Tools 4.0.0
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,58 +12,74 @@ import java.util.Set;
 public class HangHoa implements java.io.Serializable {
 
 	private Integer id;
-	private LoaiHangHoa loaiHangHoa;
+	private DonViTinh donViTinh;
 	private NhaPhanPhoi nhaPhanPhoi;
 	private NhomHang nhomHang;
-	private Kho kho;
-	private int giaNhap;
-	private int giaBan;
-	private String maVach;
-	private int soLuongTon;
+	private String maHangHoa;
+	private String maVachNhaSanXuat;
 	private String tenHangHoa;
-	private String thongTinNhaSanXuat;
-	private Date ngayNhap;
-	private Set<HoaDon> hoaDons = new HashSet<HoaDon>(0);
-	private Set<LichSuBanHang> lichSuBanHangs = new HashSet<LichSuBanHang>(0);
+	private String xuatXu;
+	private String thue;
+	private long tonKhoToiThieu;
+	private long tonKhoHienTai;
+	private String hinhAnh;
+	private byte laDichVu;
+	private double giaMua;
+	private double giaBanSi;
+	private double giaBanLe;
+	private Set<ChiTietMuaHang> chiTietMuaHangs = new HashSet<ChiTietMuaHang>(0);
+	private Set<ChiTietChuyenKho> chiTietChuyenKhos = new HashSet<ChiTietChuyenKho>(
+			0);
+	private Set<SoDuDauKy> soDuDauKies = new HashSet<SoDuDauKy>(0);
+	private Set<ChiTietBanHang> chiTietBanHangs = new HashSet<ChiTietBanHang>(0);
 
 	public HangHoa() {
 	}
 
-	public HangHoa(LoaiHangHoa loaiHangHoa, NhaPhanPhoi nhaPhanPhoi,
-			NhomHang nhomHang, Kho kho, int giaNhap, int giaBan, String maVach,
-			int soLuongTon, String tenHangHoa, String thongTinNhaSanXuat,
-			Date ngayNhap) {
-		this.loaiHangHoa = loaiHangHoa;
+	public HangHoa(DonViTinh donViTinh, NhaPhanPhoi nhaPhanPhoi,
+			NhomHang nhomHang, String maHangHoa, String tenHangHoa,
+			long tonKhoToiThieu, long tonKhoHienTai, byte laDichVu,
+			double giaMua, double giaBanSi, double giaBanLe) {
+		this.donViTinh = donViTinh;
 		this.nhaPhanPhoi = nhaPhanPhoi;
 		this.nhomHang = nhomHang;
-		this.kho = kho;
-		this.giaNhap = giaNhap;
-		this.giaBan = giaBan;
-		this.maVach = maVach;
-		this.soLuongTon = soLuongTon;
+		this.maHangHoa = maHangHoa;
 		this.tenHangHoa = tenHangHoa;
-		this.thongTinNhaSanXuat = thongTinNhaSanXuat;
-		this.ngayNhap = ngayNhap;
+		this.tonKhoToiThieu = tonKhoToiThieu;
+		this.tonKhoHienTai = tonKhoHienTai;
+		this.laDichVu = laDichVu;
+		this.giaMua = giaMua;
+		this.giaBanSi = giaBanSi;
+		this.giaBanLe = giaBanLe;
 	}
 
-	public HangHoa(LoaiHangHoa loaiHangHoa, NhaPhanPhoi nhaPhanPhoi,
-			NhomHang nhomHang, Kho kho, int giaNhap, int giaBan, String maVach,
-			int soLuongTon, String tenHangHoa, String thongTinNhaSanXuat,
-			Date ngayNhap, Set<HoaDon> hoaDons,
-			Set<LichSuBanHang> lichSuBanHangs) {
-		this.loaiHangHoa = loaiHangHoa;
+	public HangHoa(DonViTinh donViTinh, NhaPhanPhoi nhaPhanPhoi,
+			NhomHang nhomHang, String maHangHoa, String maVachNhaSanXuat,
+			String tenHangHoa, String xuatXu, String thue, long tonKhoToiThieu,
+			long tonKhoHienTai, String hinhAnh, byte laDichVu, double giaMua,
+			double giaBanSi, double giaBanLe,
+			Set<ChiTietMuaHang> chiTietMuaHangs,
+			Set<ChiTietChuyenKho> chiTietChuyenKhos,
+			Set<SoDuDauKy> soDuDauKies, Set<ChiTietBanHang> chiTietBanHangs) {
+		this.donViTinh = donViTinh;
 		this.nhaPhanPhoi = nhaPhanPhoi;
 		this.nhomHang = nhomHang;
-		this.kho = kho;
-		this.giaNhap = giaNhap;
-		this.giaBan = giaBan;
-		this.maVach = maVach;
-		this.soLuongTon = soLuongTon;
+		this.maHangHoa = maHangHoa;
+		this.maVachNhaSanXuat = maVachNhaSanXuat;
 		this.tenHangHoa = tenHangHoa;
-		this.thongTinNhaSanXuat = thongTinNhaSanXuat;
-		this.ngayNhap = ngayNhap;
-		this.hoaDons = hoaDons;
-		this.lichSuBanHangs = lichSuBanHangs;
+		this.xuatXu = xuatXu;
+		this.thue = thue;
+		this.tonKhoToiThieu = tonKhoToiThieu;
+		this.tonKhoHienTai = tonKhoHienTai;
+		this.hinhAnh = hinhAnh;
+		this.laDichVu = laDichVu;
+		this.giaMua = giaMua;
+		this.giaBanSi = giaBanSi;
+		this.giaBanLe = giaBanLe;
+		this.chiTietMuaHangs = chiTietMuaHangs;
+		this.chiTietChuyenKhos = chiTietChuyenKhos;
+		this.soDuDauKies = soDuDauKies;
+		this.chiTietBanHangs = chiTietBanHangs;
 	}
 
 	public Integer getId() {
@@ -75,12 +90,12 @@ public class HangHoa implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public LoaiHangHoa getLoaiHangHoa() {
-		return this.loaiHangHoa;
+	public DonViTinh getDonViTinh() {
+		return this.donViTinh;
 	}
 
-	public void setLoaiHangHoa(LoaiHangHoa loaiHangHoa) {
-		this.loaiHangHoa = loaiHangHoa;
+	public void setDonViTinh(DonViTinh donViTinh) {
+		this.donViTinh = donViTinh;
 	}
 
 	public NhaPhanPhoi getNhaPhanPhoi() {
@@ -99,44 +114,20 @@ public class HangHoa implements java.io.Serializable {
 		this.nhomHang = nhomHang;
 	}
 
-	public Kho getKho() {
-		return this.kho;
+	public String getMaHangHoa() {
+		return this.maHangHoa;
 	}
 
-	public void setKho(Kho kho) {
-		this.kho = kho;
+	public void setMaHangHoa(String maHangHoa) {
+		this.maHangHoa = maHangHoa;
 	}
 
-	public int getGiaNhap() {
-		return this.giaNhap;
+	public String getMaVachNhaSanXuat() {
+		return this.maVachNhaSanXuat;
 	}
 
-	public void setGiaNhap(int giaNhap) {
-		this.giaNhap = giaNhap;
-	}
-
-	public int getGiaBan() {
-		return this.giaBan;
-	}
-
-	public void setGiaBan(int giaBan) {
-		this.giaBan = giaBan;
-	}
-
-	public String getMaVach() {
-		return this.maVach;
-	}
-
-	public void setMaVach(String maVach) {
-		this.maVach = maVach;
-	}
-
-	public int getSoLuongTon() {
-		return this.soLuongTon;
-	}
-
-	public void setSoLuongTon(int soLuongTon) {
-		this.soLuongTon = soLuongTon;
+	public void setMaVachNhaSanXuat(String maVachNhaSanXuat) {
+		this.maVachNhaSanXuat = maVachNhaSanXuat;
 	}
 
 	public String getTenHangHoa() {
@@ -147,36 +138,108 @@ public class HangHoa implements java.io.Serializable {
 		this.tenHangHoa = tenHangHoa;
 	}
 
-	public String getThongTinNhaSanXuat() {
-		return this.thongTinNhaSanXuat;
+	public String getXuatXu() {
+		return this.xuatXu;
 	}
 
-	public void setThongTinNhaSanXuat(String thongTinNhaSanXuat) {
-		this.thongTinNhaSanXuat = thongTinNhaSanXuat;
+	public void setXuatXu(String xuatXu) {
+		this.xuatXu = xuatXu;
 	}
 
-	public Date getNgayNhap() {
-		return this.ngayNhap;
+	public String getThue() {
+		return this.thue;
 	}
 
-	public void setNgayNhap(Date ngayNhap) {
-		this.ngayNhap = ngayNhap;
+	public void setThue(String thue) {
+		this.thue = thue;
 	}
 
-	public Set<HoaDon> getHoaDons() {
-		return this.hoaDons;
+	public long getTonKhoToiThieu() {
+		return this.tonKhoToiThieu;
 	}
 
-	public void setHoaDons(Set<HoaDon> hoaDons) {
-		this.hoaDons = hoaDons;
+	public void setTonKhoToiThieu(long tonKhoToiThieu) {
+		this.tonKhoToiThieu = tonKhoToiThieu;
 	}
 
-	public Set<LichSuBanHang> getLichSuBanHangs() {
-		return this.lichSuBanHangs;
+	public long getTonKhoHienTai() {
+		return this.tonKhoHienTai;
 	}
 
-	public void setLichSuBanHangs(Set<LichSuBanHang> lichSuBanHangs) {
-		this.lichSuBanHangs = lichSuBanHangs;
+	public void setTonKhoHienTai(long tonKhoHienTai) {
+		this.tonKhoHienTai = tonKhoHienTai;
+	}
+
+	public String getHinhAnh() {
+		return this.hinhAnh;
+	}
+
+	public void setHinhAnh(String hinhAnh) {
+		this.hinhAnh = hinhAnh;
+	}
+
+	public byte getLaDichVu() {
+		return this.laDichVu;
+	}
+
+	public void setLaDichVu(byte laDichVu) {
+		this.laDichVu = laDichVu;
+	}
+
+	public double getGiaMua() {
+		return this.giaMua;
+	}
+
+	public void setGiaMua(double giaMua) {
+		this.giaMua = giaMua;
+	}
+
+	public double getGiaBanSi() {
+		return this.giaBanSi;
+	}
+
+	public void setGiaBanSi(double giaBanSi) {
+		this.giaBanSi = giaBanSi;
+	}
+
+	public double getGiaBanLe() {
+		return this.giaBanLe;
+	}
+
+	public void setGiaBanLe(double giaBanLe) {
+		this.giaBanLe = giaBanLe;
+	}
+
+	public Set<ChiTietMuaHang> getChiTietMuaHangs() {
+		return this.chiTietMuaHangs;
+	}
+
+	public void setChiTietMuaHangs(Set<ChiTietMuaHang> chiTietMuaHangs) {
+		this.chiTietMuaHangs = chiTietMuaHangs;
+	}
+
+	public Set<ChiTietChuyenKho> getChiTietChuyenKhos() {
+		return this.chiTietChuyenKhos;
+	}
+
+	public void setChiTietChuyenKhos(Set<ChiTietChuyenKho> chiTietChuyenKhos) {
+		this.chiTietChuyenKhos = chiTietChuyenKhos;
+	}
+
+	public Set<SoDuDauKy> getSoDuDauKies() {
+		return this.soDuDauKies;
+	}
+
+	public void setSoDuDauKies(Set<SoDuDauKy> soDuDauKies) {
+		this.soDuDauKies = soDuDauKies;
+	}
+
+	public Set<ChiTietBanHang> getChiTietBanHangs() {
+		return this.chiTietBanHangs;
+	}
+
+	public void setChiTietBanHangs(Set<ChiTietBanHang> chiTietBanHangs) {
+		this.chiTietBanHangs = chiTietBanHangs;
 	}
 
 }

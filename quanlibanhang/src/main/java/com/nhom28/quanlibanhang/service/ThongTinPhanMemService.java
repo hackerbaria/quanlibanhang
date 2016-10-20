@@ -1,9 +1,9 @@
 package com.nhom28.quanlibanhang.service;
 
-import com.nhom28.quanlibanhang.pojo.ThongTinPhanMem;
+import com.nhom28.quanlibanhang.pojo.ThongTinDonViSuDung;
 
 public interface ThongTinPhanMemService {
 	
-	ThongTinPhanMem getThongTinPhanMem();
+	ThongTinDonViSuDung getThongTinPhanMem();
 
 }

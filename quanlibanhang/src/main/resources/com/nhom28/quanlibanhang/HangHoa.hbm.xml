@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 19, 2016 10:57:01 PM by Hibernate Tools 4.0.0 -->
+<!-- Generated Oct 20, 2016 9:05:40 PM by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="com.nhom28.quanlibanhang.pojo.HangHoa" table="hang_hoa" catalog="quanlibanhang">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="loaiHangHoa" class="com.nhom28.quanlibanhang.pojo.LoaiHangHoa" fetch="select">
-            <column name="id_loai_hang_hoa" not-null="true" />
+        <many-to-one name="donViTinh" class="com.nhom28.quanlibanhang.pojo.DonViTinh" fetch="select">
+            <column name="id_don_vi_tinh" not-null="true" />
         </many-to-one>
         <many-to-one name="nhaPhanPhoi" class="com.nhom28.quanlibanhang.pojo.NhaPhanPhoi" fetch="select">
             <column name="id_nha_phan_phoi" not-null="true" />
@@ -17,41 +17,65 @@
         <many-to-one name="nhomHang" class="com.nhom28.quanlibanhang.pojo.NhomHang" fetch="select">
             <column name="id_nhom_hang" not-null="true" />
         </many-to-one>
-        <many-to-one name="kho" class="com.nhom28.quanlibanhang.pojo.Kho" fetch="select">
-            <column name="id_kho" not-null="true" />
-        </many-to-one>
-        <property name="giaNhap" type="int">
-            <column name="gia_nhap" not-null="true" />
+        <property name="maHangHoa" type="string">
+            <column name="ma_hang_hoa" not-null="true" />
         </property>
-        <property name="giaBan" type="int">
-            <column name="gia_ban" not-null="true" />
-        </property>
-        <property name="maVach" type="string">
-            <column name="ma_vach" not-null="true" />
-        </property>
-        <property name="soLuongTon" type="int">
-            <column name="so_luong_ton" not-null="true" />
+        <property name="maVachNhaSanXuat" type="string">
+            <column name="ma_vach_nha_san_xuat" />
         </property>
         <property name="tenHangHoa" type="string">
             <column name="ten_hang_hoa" not-null="true" />
         </property>
-        <property name="thongTinNhaSanXuat" type="string">
-            <column name="thong_tin_nha_san_xuat" not-null="true" />
+        <property name="xuatXu" type="string">
+            <column name="xuat_xu" />
         </property>
-        <property name="ngayNhap" type="date">
-            <column name="ngay_nhap" length="10" not-null="true" />
+        <property name="thue" type="string">
+            <column name="thue" />
         </property>
-        <set name="hoaDons" table="hoa_don" inverse="true" lazy="true" fetch="select">
+        <property name="tonKhoToiThieu" type="long">
+            <column name="ton_kho_toi_thieu" not-null="true" />
+        </property>
+        <property name="tonKhoHienTai" type="long">
+            <column name="ton_kho_hien_tai" not-null="true" />
+        </property>
+        <property name="hinhAnh" type="string">
+            <column name="hinh_anh" />
+        </property>
+        <property name="laDichVu" type="byte">
+            <column name="la_dich_vu" not-null="true" />
+        </property>
+        <property name="giaMua" type="double">
+            <column name="gia_mua" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="giaBanSi" type="double">
+            <column name="gia_ban_si" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="giaBanLe" type="double">
+            <column name="gia_ban_le" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="chiTietMuaHangs" table="chi_tiet_mua_hang" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_hang_hoa" not-null="true" />
             </key>
-            <one-to-many class="com.nhom28.quanlibanhang.pojo.HoaDon" />
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.ChiTietMuaHang" />
         </set>
-        <set name="lichSuBanHangs" table="lich_su_ban_hang" inverse="true" lazy="true" fetch="select">
+        <set name="chiTietChuyenKhos" table="chi_tiet_chuyen_kho" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_hang_hoa" not-null="true" />
             </key>
-            <one-to-many class="com.nhom28.quanlibanhang.pojo.LichSuBanHang" />
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.ChiTietChuyenKho" />
+        </set>
+        <set name="soDuDauKies" table="so_du_dau_ky" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_hang_hoa" not-null="true" />
+            </key>
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.SoDuDauKy" />
+        </set>
+        <set name="chiTietBanHangs" table="chi_tiet_ban_hang" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_hang_hoa" not-null="true" />
+            </key>
+            <one-to-many class="com.nhom28.quanlibanhang.pojo.ChiTietBanHang" />
         </set>
     </class>
 </hibernate-mapping>

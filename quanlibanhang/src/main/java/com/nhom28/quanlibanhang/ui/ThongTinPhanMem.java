@@ -5,6 +5,7 @@
  */
 package com.nhom28.quanlibanhang.ui;
 
+import com.nhom28.quanlibanhang.pojo.ThongTinDonViSuDung;
 import com.nhom28.quanlibanhang.service.ThongTinPhanMemService;
 import com.nhom28.quanlibanhang.service.impl.ThongTinPhanMemServiceImpl;
 
@@ -32,7 +33,7 @@ public class ThongTinPhanMem extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
     	
-    	com.nhom28.quanlibanhang.pojo.ThongTinPhanMem infor = service.getThongTinPhanMem();
+    	ThongTinDonViSuDung infor = service.getThongTinPhanMem();
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -81,7 +82,7 @@ public class ThongTinPhanMem extends javax.swing.JFrame {
         jLabel10.setText("GPKD");
 
         txtTenDonVi.setEditable(false);
-        txtTenDonVi.setText(infor.getTenDonVi());
+        txtTenDonVi.setText(infor.getTenCongTy());
         txtTenDonVi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTenDonViActionPerformed(evt);

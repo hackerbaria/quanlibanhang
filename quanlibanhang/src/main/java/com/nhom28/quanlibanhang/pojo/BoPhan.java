@@ -1,7 +1,7 @@
 package com.nhom28.quanlibanhang.pojo;
 
 // default package
-// Generated Oct 19, 2016 10:56:54 PM by Hibernate Tools 4.0.0
+// Generated Oct 20, 2016 9:05:28 PM by Hibernate Tools 4.0.0
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,19 +14,25 @@ public class BoPhan implements java.io.Serializable {
 	private Integer id;
 	private String tenBoPhan;
 	private int idNguoiQuanLy;
+	private String ghiChu;
+	private byte conQuanLy;
 	private Set<NhanVien> nhanViens = new HashSet<NhanVien>(0);
 
 	public BoPhan() {
 	}
 
-	public BoPhan(String tenBoPhan, int idNguoiQuanLy) {
+	public BoPhan(String tenBoPhan, int idNguoiQuanLy, byte conQuanLy) {
 		this.tenBoPhan = tenBoPhan;
 		this.idNguoiQuanLy = idNguoiQuanLy;
+		this.conQuanLy = conQuanLy;
 	}
 
-	public BoPhan(String tenBoPhan, int idNguoiQuanLy, Set<NhanVien> nhanViens) {
+	public BoPhan(String tenBoPhan, int idNguoiQuanLy, String ghiChu,
+			byte conQuanLy, Set<NhanVien> nhanViens) {
 		this.tenBoPhan = tenBoPhan;
 		this.idNguoiQuanLy = idNguoiQuanLy;
+		this.ghiChu = ghiChu;
+		this.conQuanLy = conQuanLy;
 		this.nhanViens = nhanViens;
 	}
 
@@ -52,6 +58,22 @@ public class BoPhan implements java.io.Serializable {
 
 	public void setIdNguoiQuanLy(int idNguoiQuanLy) {
 		this.idNguoiQuanLy = idNguoiQuanLy;
+	}
+
+	public String getGhiChu() {
+		return this.ghiChu;
+	}
+
+	public void setGhiChu(String ghiChu) {
+		this.ghiChu = ghiChu;
+	}
+
+	public byte getConQuanLy() {
+		return this.conQuanLy;
+	}
+
+	public void setConQuanLy(byte conQuanLy) {
+		this.conQuanLy = conQuanLy;
 	}
 
 	public Set<NhanVien> getNhanViens() {

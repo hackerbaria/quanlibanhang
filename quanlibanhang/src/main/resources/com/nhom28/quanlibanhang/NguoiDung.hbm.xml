@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 19, 2016 10:57:01 PM by Hibernate Tools 4.0.0 -->
+<!-- Generated Oct 20, 2016 9:05:40 PM by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="com.nhom28.quanlibanhang.pojo.NguoiDung" table="nguoi_dung" catalog="quanlibanhang">
         <id name="id" type="java.lang.Integer">
@@ -11,26 +11,20 @@
         <many-to-one name="nhanVien" class="com.nhom28.quanlibanhang.pojo.NhanVien" fetch="select">
             <column name="id_nhan_vien" not-null="true" />
         </many-to-one>
-        <many-to-one name="phanQuyen" class="com.nhom28.quanlibanhang.pojo.PhanQuyen" fetch="select">
-            <column name="id_phan_quyen" not-null="true" />
+        <many-to-one name="nhomNguoiDung" class="com.nhom28.quanlibanhang.pojo.NhomNguoiDung" fetch="select">
+            <column name="id_nhom_nguoi_dung" not-null="true" />
         </many-to-one>
-        <property name="taiKhoan" type="string">
-            <column name="tai_khoan" not-null="true" />
+        <property name="tenDangNhap" type="string">
+            <column name="ten_dang_nhap" not-null="true" />
         </property>
-        <property name="passWord" type="string">
-            <column name="pass_word" not-null="true" />
+        <property name="matKhau" type="string">
+            <column name="mat_khau" not-null="true" />
         </property>
-        <property name="ngayTaoTaiKhoan" type="date">
-            <column name="ngay_tao_tai_khoan" length="10" not-null="true" />
+        <property name="moTa" type="string">
+            <column name="mo_ta" />
         </property>
-        <property name="ngayTruyCapGanNhat" type="date">
-            <column name="ngay_truy_cap_gan_nhat" length="10" not-null="true" />
+        <property name="conQuanLy" type="byte">
+            <column name="con_quan_ly" not-null="true" />
         </property>
-        <set name="nhatKyHeThongs" table="nhat_ky_he_thong" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_nguoi_dung" not-null="true" />
-            </key>
-            <one-to-many class="com.nhom28.quanlibanhang.pojo.NhatKyHeThong" />
-        </set>
     </class>
 </hibernate-mapping>

@@ -1,33 +1,84 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 19, 2016 10:57:01 PM by Hibernate Tools 4.0.0 -->
+<!-- Generated Oct 20, 2016 9:05:40 PM by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="com.nhom28.quanlibanhang.pojo.PhanQuyen" table="phan_quyen" catalog="quanlibanhang">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <property name="dienGiai" type="string">
-            <column name="dien_giai" not-null="true" />
+        <many-to-one name="nhomNguoiDung" class="com.nhom28.quanlibanhang.pojo.NhomNguoiDung" fetch="select">
+            <column name="id_nhom_nguoi_dung" not-null="true" />
+        </many-to-one>
+        <property name="nhatKyHeThong" type="byte">
+            <column name="nhat_ky_he_thong" not-null="true" />
         </property>
-        <property name="ten" type="string">
-            <column name="ten" not-null="true" />
+        <property name="backup" type="byte">
+            <column name="backup" not-null="true" />
         </property>
-        <property name="heThong" type="string">
-            <column name="he_thong" not-null="true" />
+        <property name="restore" type="byte">
+            <column name="restore" not-null="true" />
         </property>
-        <property name="baoMat" type="string">
-            <column name="bao_mat" not-null="true" />
+        <property name="phanQuyen" type="byte">
+            <column name="phan_quyen" not-null="true" />
         </property>
-        <property name="duLieu" type="string">
-            <column name="du_lieu" not-null="true" />
+        <property name="khuVuc" type="byte">
+            <column name="khu_vuc" not-null="true" />
         </property>
-        <set name="nguoiDungs" table="nguoi_dung" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_phan_quyen" not-null="true" />
-            </key>
-            <one-to-many class="com.nhom28.quanlibanhang.pojo.NguoiDung" />
-        </set>
+        <property name="khachHang" type="byte">
+            <column name="khach_hang" not-null="true" />
+        </property>
+        <property name="nhaPhanPhoi" type="byte">
+            <column name="nha_phan_phoi" not-null="true" />
+        </property>
+        <property name="hangHoa" type="byte">
+            <column name="hang_hoa" not-null="true" />
+        </property>
+        <property name="donViTinh" type="byte">
+            <column name="don_vi_tinh" not-null="true" />
+        </property>
+        <property name="nhomHang" type="byte">
+            <column name="nhom_hang" not-null="true" />
+        </property>
+        <property name="kho" type="byte">
+            <column name="kho" not-null="true" />
+        </property>
+        <property name="boPhan" type="byte">
+            <column name="bo_phan" not-null="true" />
+        </property>
+        <property name="nhanVien" type="byte">
+            <column name="nhan_vien" not-null="true" />
+        </property>
+        <property name="muaHang" type="byte">
+            <column name="mua_hang" not-null="true" />
+        </property>
+        <property name="banHang" type="byte">
+            <column name="ban_hang" not-null="true" />
+        </property>
+        <property name="chuyenKho" type="byte">
+            <column name="chuyen_kho" not-null="true" />
+        </property>
+        <property name="tonKho" type="byte">
+            <column name="ton_kho" not-null="true" />
+        </property>
+        <property name="thuTien" type="byte">
+            <column name="thu_tien" not-null="true" />
+        </property>
+        <property name="traTien" type="byte">
+            <column name="tra_tien" not-null="true" />
+        </property>
+        <property name="nguoiDung" type="byte">
+            <column name="nguoi_dung" not-null="true" />
+        </property>
+        <property name="lichSuHangHoa" type="byte">
+            <column name="lich_su_hang_hoa" not-null="true" />
+        </property>
+        <property name="report" type="byte">
+            <column name="report" not-null="true" />
+        </property>
+        <property name="tyGia" type="byte">
+            <column name="ty_gia" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

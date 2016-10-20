@@ -1,9 +1,8 @@
 package com.nhom28.quanlibanhang.pojo;
 
 // default package
-// Generated Oct 19, 2016 10:56:54 PM by Hibernate Tools 4.0.0
+// Generated Oct 20, 2016 9:05:28 PM by Hibernate Tools 4.0.0
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,53 +13,54 @@ public class NhanVien implements java.io.Serializable {
 
 	private Integer id;
 	private BoPhan boPhan;
-	private String tenDayDu;
-	private Date ngaySinh;
+	private String maNhanVien;
+	private String tenNhanVien;
+	private byte gioiTinh;
 	private String diaChi;
-	private String dienThoai;
+	private byte conDocThan;
+	private String chucVu;
 	private String email;
-	private int gioiTinh;
-	private Date ngayBatDau;
-	private int loaiNhanVien;
-	private Set<KhuVuc> khuVucs = new HashSet<KhuVuc>(0);
-	private Set<KhuVuc> khuVucs_1 = new HashSet<KhuVuc>(0);
-	private Set<Kho> khos = new HashSet<Kho>(0);
+	private String dienThoai;
+	private String diDong;
+	private String dienGiai;
+	private byte conQuanLy;
 	private Set<NguoiDung> nguoiDungs = new HashSet<NguoiDung>(0);
+	private Set<Kho> khos = new HashSet<Kho>(0);
 
 	public NhanVien() {
 	}
 
-	public NhanVien(BoPhan boPhan, String tenDayDu, Date ngaySinh,
-			String diaChi, String dienThoai, String email, int gioiTinh,
-			Date ngayBatDau, int loaiNhanVien) {
+	public NhanVien(BoPhan boPhan, String maNhanVien, String tenNhanVien,
+			byte gioiTinh, byte conDocThan, String chucVu, String dienGiai,
+			byte conQuanLy) {
 		this.boPhan = boPhan;
-		this.tenDayDu = tenDayDu;
-		this.ngaySinh = ngaySinh;
-		this.diaChi = diaChi;
-		this.dienThoai = dienThoai;
-		this.email = email;
+		this.maNhanVien = maNhanVien;
+		this.tenNhanVien = tenNhanVien;
 		this.gioiTinh = gioiTinh;
-		this.ngayBatDau = ngayBatDau;
-		this.loaiNhanVien = loaiNhanVien;
+		this.conDocThan = conDocThan;
+		this.chucVu = chucVu;
+		this.dienGiai = dienGiai;
+		this.conQuanLy = conQuanLy;
 	}
 
-	public NhanVien(BoPhan boPhan, String tenDayDu, Date ngaySinh,
-			String diaChi, String dienThoai, String email, int gioiTinh,
-			Date ngayBatDau, int loaiNhanVien, Set<KhuVuc> khuVucs,
-			Set<KhuVuc> khuVucs_1, Set<Kho> khos, Set<NguoiDung> nguoiDungs) {
+	public NhanVien(BoPhan boPhan, String maNhanVien, String tenNhanVien,
+			byte gioiTinh, String diaChi, byte conDocThan, String chucVu,
+			String email, String dienThoai, String diDong, String dienGiai,
+			byte conQuanLy, Set<NguoiDung> nguoiDungs, Set<Kho> khos) {
 		this.boPhan = boPhan;
-		this.tenDayDu = tenDayDu;
-		this.ngaySinh = ngaySinh;
-		this.diaChi = diaChi;
-		this.dienThoai = dienThoai;
-		this.email = email;
+		this.maNhanVien = maNhanVien;
+		this.tenNhanVien = tenNhanVien;
 		this.gioiTinh = gioiTinh;
-		this.ngayBatDau = ngayBatDau;
-		this.loaiNhanVien = loaiNhanVien;
-		this.khuVucs = khuVucs;
-		this.khuVucs_1 = khuVucs_1;
-		this.khos = khos;
+		this.diaChi = diaChi;
+		this.conDocThan = conDocThan;
+		this.chucVu = chucVu;
+		this.email = email;
+		this.dienThoai = dienThoai;
+		this.diDong = diDong;
+		this.dienGiai = dienGiai;
+		this.conQuanLy = conQuanLy;
 		this.nguoiDungs = nguoiDungs;
+		this.khos = khos;
 	}
 
 	public Integer getId() {
@@ -79,20 +79,28 @@ public class NhanVien implements java.io.Serializable {
 		this.boPhan = boPhan;
 	}
 
-	public String getTenDayDu() {
-		return this.tenDayDu;
+	public String getMaNhanVien() {
+		return this.maNhanVien;
 	}
 
-	public void setTenDayDu(String tenDayDu) {
-		this.tenDayDu = tenDayDu;
+	public void setMaNhanVien(String maNhanVien) {
+		this.maNhanVien = maNhanVien;
 	}
 
-	public Date getNgaySinh() {
-		return this.ngaySinh;
+	public String getTenNhanVien() {
+		return this.tenNhanVien;
 	}
 
-	public void setNgaySinh(Date ngaySinh) {
-		this.ngaySinh = ngaySinh;
+	public void setTenNhanVien(String tenNhanVien) {
+		this.tenNhanVien = tenNhanVien;
+	}
+
+	public byte getGioiTinh() {
+		return this.gioiTinh;
+	}
+
+	public void setGioiTinh(byte gioiTinh) {
+		this.gioiTinh = gioiTinh;
 	}
 
 	public String getDiaChi() {
@@ -103,12 +111,20 @@ public class NhanVien implements java.io.Serializable {
 		this.diaChi = diaChi;
 	}
 
-	public String getDienThoai() {
-		return this.dienThoai;
+	public byte getConDocThan() {
+		return this.conDocThan;
 	}
 
-	public void setDienThoai(String dienThoai) {
-		this.dienThoai = dienThoai;
+	public void setConDocThan(byte conDocThan) {
+		this.conDocThan = conDocThan;
+	}
+
+	public String getChucVu() {
+		return this.chucVu;
+	}
+
+	public void setChucVu(String chucVu) {
+		this.chucVu = chucVu;
 	}
 
 	public String getEmail() {
@@ -119,52 +135,36 @@ public class NhanVien implements java.io.Serializable {
 		this.email = email;
 	}
 
-	public int getGioiTinh() {
-		return this.gioiTinh;
+	public String getDienThoai() {
+		return this.dienThoai;
 	}
 
-	public void setGioiTinh(int gioiTinh) {
-		this.gioiTinh = gioiTinh;
+	public void setDienThoai(String dienThoai) {
+		this.dienThoai = dienThoai;
 	}
 
-	public Date getNgayBatDau() {
-		return this.ngayBatDau;
+	public String getDiDong() {
+		return this.diDong;
 	}
 
-	public void setNgayBatDau(Date ngayBatDau) {
-		this.ngayBatDau = ngayBatDau;
+	public void setDiDong(String diDong) {
+		this.diDong = diDong;
 	}
 
-	public int getLoaiNhanVien() {
-		return this.loaiNhanVien;
+	public String getDienGiai() {
+		return this.dienGiai;
 	}
 
-	public void setLoaiNhanVien(int loaiNhanVien) {
-		this.loaiNhanVien = loaiNhanVien;
+	public void setDienGiai(String dienGiai) {
+		this.dienGiai = dienGiai;
 	}
 
-	public Set<KhuVuc> getKhuVucs() {
-		return this.khuVucs;
+	public byte getConQuanLy() {
+		return this.conQuanLy;
 	}
 
-	public void setKhuVucs(Set<KhuVuc> khuVucs) {
-		this.khuVucs = khuVucs;
-	}
-
-	public Set<KhuVuc> getKhuVucs_1() {
-		return this.khuVucs_1;
-	}
-
-	public void setKhuVucs_1(Set<KhuVuc> khuVucs_1) {
-		this.khuVucs_1 = khuVucs_1;
-	}
-
-	public Set<Kho> getKhos() {
-		return this.khos;
-	}
-
-	public void setKhos(Set<Kho> khos) {
-		this.khos = khos;
+	public void setConQuanLy(byte conQuanLy) {
+		this.conQuanLy = conQuanLy;
 	}
 
 	public Set<NguoiDung> getNguoiDungs() {
@@ -173,6 +173,14 @@ public class NhanVien implements java.io.Serializable {
 
 	public void setNguoiDungs(Set<NguoiDung> nguoiDungs) {
 		this.nguoiDungs = nguoiDungs;
+	}
+
+	public Set<Kho> getKhos() {
+		return this.khos;
+	}
+
+	public void setKhos(Set<Kho> khos) {
+		this.khos = khos;
 	}
 
 }

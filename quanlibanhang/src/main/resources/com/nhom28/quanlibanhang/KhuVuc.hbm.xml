@@ -1,18 +1,24 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 19, 2016 10:57:01 PM by Hibernate Tools 4.0.0 -->
+<!-- Generated Oct 20, 2016 9:05:40 PM by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="com.nhom28.quanlibanhang.pojo.KhuVuc" table="khu_vuc" catalog="quanlibanhang">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="nhanVien" class="com.nhom28.quanlibanhang.pojo.NhanVien" fetch="select">
-            <column name="id_nguoi_quan_ly" not-null="true" />
-        </many-to-one>
+        <property name="maKhuVuc" type="string">
+            <column name="ma_khu_vuc" not-null="true" />
+        </property>
         <property name="tenKhuVuc" type="string">
             <column name="ten_khu_vuc" not-null="true" />
+        </property>
+        <property name="ghiChu" type="string">
+            <column name="ghi_chu" length="65535" />
+        </property>
+        <property name="conQuanLy" type="byte">
+            <column name="con_quan_ly" not-null="true" />
         </property>
         <set name="khachHangs" table="khach_hang" inverse="true" lazy="true" fetch="select">
             <key>

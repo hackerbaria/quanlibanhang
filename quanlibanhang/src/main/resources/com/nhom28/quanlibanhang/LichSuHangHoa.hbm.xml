@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 20, 2016 9:05:40 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.nhom28.quanlibanhang.pojo.LichSuHangHoa" table="lich_su_hang_hoa" catalog="quanlibanhang">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="ngay" type="date">
+            <column name="ngay" length="10" not-null="true" />
+        </property>
+        <property name="chungTu" type="string">
+            <column name="chung_tu" />
+        </property>
+        <property name="loai" type="string">
+            <column name="loai" />
+        </property>
+        <property name="maHang" type="string">
+            <column name="ma_hang" />
+        </property>
+        <property name="tenHang" type="string">
+            <column name="ten_hang" />
+        </property>
+        <property name="khoHang" type="string">
+            <column name="kho_hang" />
+        </property>
+        <property name="donVi" type="string">
+            <column name="don_vi" />
+        </property>
+        <property name="soLuong" type="string">
+            <column name="so_luong" />
+        </property>
+        <property name="donGia" type="string">
+            <column name="don_gia" />
+        </property>
+        <property name="thanhTien" type="string">
+            <column name="thanh_tien" />
+        </property>
+        <property name="ghiChu" type="string">
+            <column name="ghi_chu" />
+        </property>
+    </class>
+</hibernate-mapping>

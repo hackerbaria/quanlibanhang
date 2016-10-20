@@ -1,9 +1,8 @@
 package com.nhom28.quanlibanhang.pojo;
 
 // default package
-// Generated Oct 19, 2016 10:56:54 PM by Hibernate Tools 4.0.0
+// Generated Oct 20, 2016 9:05:28 PM by Hibernate Tools 4.0.0
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,50 +13,65 @@ public class NhaPhanPhoi implements java.io.Serializable {
 
 	private Integer id;
 	private KhuVuc khuVuc;
+	private String maNhaPhanPhoi;
 	private String tenNhaPhanPhoi;
-	private Date ngayKyHopDong;
 	private String diaChi;
+	private String maSoThue;
+	private String fax;
 	private String dienThoai;
+	private String diDong;
 	private String email;
-	private String nguoiDaiDien;
-	private Date ngayGiaoDichGanNhat;
-	private int chietKhau;
-	private String thongTinLienQuan;
+	private String website;
+	private String soTaiKhoan;
+	private String nganHang;
+	private double gioiHanNo;
+	private double noHienTai;
+	private float chietKhau;
+	private String nguoiLienHe;
+	private String chucVu;
+	private byte conQuanLy;
 	private Set<HangHoa> hangHoas = new HashSet<HangHoa>(0);
 
 	public NhaPhanPhoi() {
 	}
 
-	public NhaPhanPhoi(KhuVuc khuVuc, String tenNhaPhanPhoi,
-			Date ngayKyHopDong, String diaChi, String dienThoai, String email,
-			String nguoiDaiDien, Date ngayGiaoDichGanNhat, int chietKhau,
-			String thongTinLienQuan) {
+	public NhaPhanPhoi(KhuVuc khuVuc, String maNhaPhanPhoi,
+			String tenNhaPhanPhoi, String maSoThue, double gioiHanNo,
+			double noHienTai, float chietKhau, byte conQuanLy) {
 		this.khuVuc = khuVuc;
+		this.maNhaPhanPhoi = maNhaPhanPhoi;
 		this.tenNhaPhanPhoi = tenNhaPhanPhoi;
-		this.ngayKyHopDong = ngayKyHopDong;
-		this.diaChi = diaChi;
-		this.dienThoai = dienThoai;
-		this.email = email;
-		this.nguoiDaiDien = nguoiDaiDien;
-		this.ngayGiaoDichGanNhat = ngayGiaoDichGanNhat;
+		this.maSoThue = maSoThue;
+		this.gioiHanNo = gioiHanNo;
+		this.noHienTai = noHienTai;
 		this.chietKhau = chietKhau;
-		this.thongTinLienQuan = thongTinLienQuan;
+		this.conQuanLy = conQuanLy;
 	}
 
-	public NhaPhanPhoi(KhuVuc khuVuc, String tenNhaPhanPhoi,
-			Date ngayKyHopDong, String diaChi, String dienThoai, String email,
-			String nguoiDaiDien, Date ngayGiaoDichGanNhat, int chietKhau,
-			String thongTinLienQuan, Set<HangHoa> hangHoas) {
+	public NhaPhanPhoi(KhuVuc khuVuc, String maNhaPhanPhoi,
+			String tenNhaPhanPhoi, String diaChi, String maSoThue, String fax,
+			String dienThoai, String diDong, String email, String website,
+			String soTaiKhoan, String nganHang, double gioiHanNo,
+			double noHienTai, float chietKhau, String nguoiLienHe,
+			String chucVu, byte conQuanLy, Set<HangHoa> hangHoas) {
 		this.khuVuc = khuVuc;
+		this.maNhaPhanPhoi = maNhaPhanPhoi;
 		this.tenNhaPhanPhoi = tenNhaPhanPhoi;
-		this.ngayKyHopDong = ngayKyHopDong;
 		this.diaChi = diaChi;
+		this.maSoThue = maSoThue;
+		this.fax = fax;
 		this.dienThoai = dienThoai;
+		this.diDong = diDong;
 		this.email = email;
-		this.nguoiDaiDien = nguoiDaiDien;
-		this.ngayGiaoDichGanNhat = ngayGiaoDichGanNhat;
+		this.website = website;
+		this.soTaiKhoan = soTaiKhoan;
+		this.nganHang = nganHang;
+		this.gioiHanNo = gioiHanNo;
+		this.noHienTai = noHienTai;
 		this.chietKhau = chietKhau;
-		this.thongTinLienQuan = thongTinLienQuan;
+		this.nguoiLienHe = nguoiLienHe;
+		this.chucVu = chucVu;
+		this.conQuanLy = conQuanLy;
 		this.hangHoas = hangHoas;
 	}
 
@@ -77,20 +91,20 @@ public class NhaPhanPhoi implements java.io.Serializable {
 		this.khuVuc = khuVuc;
 	}
 
+	public String getMaNhaPhanPhoi() {
+		return this.maNhaPhanPhoi;
+	}
+
+	public void setMaNhaPhanPhoi(String maNhaPhanPhoi) {
+		this.maNhaPhanPhoi = maNhaPhanPhoi;
+	}
+
 	public String getTenNhaPhanPhoi() {
 		return this.tenNhaPhanPhoi;
 	}
 
 	public void setTenNhaPhanPhoi(String tenNhaPhanPhoi) {
 		this.tenNhaPhanPhoi = tenNhaPhanPhoi;
-	}
-
-	public Date getNgayKyHopDong() {
-		return this.ngayKyHopDong;
-	}
-
-	public void setNgayKyHopDong(Date ngayKyHopDong) {
-		this.ngayKyHopDong = ngayKyHopDong;
 	}
 
 	public String getDiaChi() {
@@ -101,12 +115,36 @@ public class NhaPhanPhoi implements java.io.Serializable {
 		this.diaChi = diaChi;
 	}
 
+	public String getMaSoThue() {
+		return this.maSoThue;
+	}
+
+	public void setMaSoThue(String maSoThue) {
+		this.maSoThue = maSoThue;
+	}
+
+	public String getFax() {
+		return this.fax;
+	}
+
+	public void setFax(String fax) {
+		this.fax = fax;
+	}
+
 	public String getDienThoai() {
 		return this.dienThoai;
 	}
 
 	public void setDienThoai(String dienThoai) {
 		this.dienThoai = dienThoai;
+	}
+
+	public String getDiDong() {
+		return this.diDong;
+	}
+
+	public void setDiDong(String diDong) {
+		this.diDong = diDong;
 	}
 
 	public String getEmail() {
@@ -117,36 +155,76 @@ public class NhaPhanPhoi implements java.io.Serializable {
 		this.email = email;
 	}
 
-	public String getNguoiDaiDien() {
-		return this.nguoiDaiDien;
+	public String getWebsite() {
+		return this.website;
 	}
 
-	public void setNguoiDaiDien(String nguoiDaiDien) {
-		this.nguoiDaiDien = nguoiDaiDien;
+	public void setWebsite(String website) {
+		this.website = website;
 	}
 
-	public Date getNgayGiaoDichGanNhat() {
-		return this.ngayGiaoDichGanNhat;
+	public String getSoTaiKhoan() {
+		return this.soTaiKhoan;
 	}
 
-	public void setNgayGiaoDichGanNhat(Date ngayGiaoDichGanNhat) {
-		this.ngayGiaoDichGanNhat = ngayGiaoDichGanNhat;
+	public void setSoTaiKhoan(String soTaiKhoan) {
+		this.soTaiKhoan = soTaiKhoan;
 	}
 
-	public int getChietKhau() {
+	public String getNganHang() {
+		return this.nganHang;
+	}
+
+	public void setNganHang(String nganHang) {
+		this.nganHang = nganHang;
+	}
+
+	public double getGioiHanNo() {
+		return this.gioiHanNo;
+	}
+
+	public void setGioiHanNo(double gioiHanNo) {
+		this.gioiHanNo = gioiHanNo;
+	}
+
+	public double getNoHienTai() {
+		return this.noHienTai;
+	}
+
+	public void setNoHienTai(double noHienTai) {
+		this.noHienTai = noHienTai;
+	}
+
+	public float getChietKhau() {
 		return this.chietKhau;
 	}
 
-	public void setChietKhau(int chietKhau) {
+	public void setChietKhau(float chietKhau) {
 		this.chietKhau = chietKhau;
 	}
 
-	public String getThongTinLienQuan() {
-		return this.thongTinLienQuan;
+	public String getNguoiLienHe() {
+		return this.nguoiLienHe;
 	}
 
-	public void setThongTinLienQuan(String thongTinLienQuan) {
-		this.thongTinLienQuan = thongTinLienQuan;
+	public void setNguoiLienHe(String nguoiLienHe) {
+		this.nguoiLienHe = nguoiLienHe;
+	}
+
+	public String getChucVu() {
+		return this.chucVu;
+	}
+
+	public void setChucVu(String chucVu) {
+		this.chucVu = chucVu;
+	}
+
+	public byte getConQuanLy() {
+		return this.conQuanLy;
+	}
+
+	public void setConQuanLy(byte conQuanLy) {
+		this.conQuanLy = conQuanLy;
 	}
 
 	public Set<HangHoa> getHangHoas() {

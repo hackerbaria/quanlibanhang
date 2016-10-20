@@ -1,7 +1,7 @@
 package com.nhom28.quanlibanhang.pojo;
 
 // default package
-// Generated Oct 19, 2016 10:56:54 PM by Hibernate Tools 4.0.0
+// Generated Oct 20, 2016 9:05:28 PM by Hibernate Tools 4.0.0
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,23 +12,29 @@ import java.util.Set;
 public class KhuVuc implements java.io.Serializable {
 
 	private Integer id;
-	private NhanVien nhanVien;
+	private String maKhuVuc;
 	private String tenKhuVuc;
+	private String ghiChu;
+	private byte conQuanLy;
 	private Set<KhachHang> khachHangs = new HashSet<KhachHang>(0);
 	private Set<NhaPhanPhoi> nhaPhanPhois = new HashSet<NhaPhanPhoi>(0);
 
 	public KhuVuc() {
 	}
 
-	public KhuVuc(NhanVien nhanVien, String tenKhuVuc) {
-		this.nhanVien = nhanVien;
+	public KhuVuc(String maKhuVuc, String tenKhuVuc, byte conQuanLy) {
+		this.maKhuVuc = maKhuVuc;
 		this.tenKhuVuc = tenKhuVuc;
+		this.conQuanLy = conQuanLy;
 	}
 
-	public KhuVuc(NhanVien nhanVien, String tenKhuVuc,
-			Set<KhachHang> khachHangs, Set<NhaPhanPhoi> nhaPhanPhois) {
-		this.nhanVien = nhanVien;
+	public KhuVuc(String maKhuVuc, String tenKhuVuc, String ghiChu,
+			byte conQuanLy, Set<KhachHang> khachHangs,
+			Set<NhaPhanPhoi> nhaPhanPhois) {
+		this.maKhuVuc = maKhuVuc;
 		this.tenKhuVuc = tenKhuVuc;
+		this.ghiChu = ghiChu;
+		this.conQuanLy = conQuanLy;
 		this.khachHangs = khachHangs;
 		this.nhaPhanPhois = nhaPhanPhois;
 	}
@@ -41,12 +47,12 @@ public class KhuVuc implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public NhanVien getNhanVien() {
-		return this.nhanVien;
+	public String getMaKhuVuc() {
+		return this.maKhuVuc;
 	}
 
-	public void setNhanVien(NhanVien nhanVien) {
-		this.nhanVien = nhanVien;
+	public void setMaKhuVuc(String maKhuVuc) {
+		this.maKhuVuc = maKhuVuc;
 	}
 
 	public String getTenKhuVuc() {
@@ -55,6 +61,22 @@ public class KhuVuc implements java.io.Serializable {
 
 	public void setTenKhuVuc(String tenKhuVuc) {
 		this.tenKhuVuc = tenKhuVuc;
+	}
+
+	public String getGhiChu() {
+		return this.ghiChu;
+	}
+
+	public void setGhiChu(String ghiChu) {
+		this.ghiChu = ghiChu;
+	}
+
+	public byte getConQuanLy() {
+		return this.conQuanLy;
+	}
+
+	public void setConQuanLy(byte conQuanLy) {
+		this.conQuanLy = conQuanLy;
 	}
 
 	public Set<KhachHang> getKhachHangs() {

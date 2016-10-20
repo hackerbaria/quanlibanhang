@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 20, 2016 9:05:40 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.nhom28.quanlibanhang.pojo.ChiTietMuaHang" table="chi_tiet_mua_hang" catalog="quanlibanhang">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="muaHang" class="com.nhom28.quanlibanhang.pojo.MuaHang" fetch="select">
+            <column name="id_mua_hang" not-null="true" />
+        </many-to-one>
+        <many-to-one name="hangHoa" class="com.nhom28.quanlibanhang.pojo.HangHoa" fetch="select">
+            <column name="id_hang_hoa" not-null="true" />
+        </many-to-one>
+        <many-to-one name="kho" class="com.nhom28.quanlibanhang.pojo.Kho" fetch="select">
+            <column name="id_kho" not-null="true" />
+        </many-to-one>
+        <property name="hanDung" type="date">
+            <column name="han_dung" length="10" not-null="true" />
+        </property>
+        <property name="donGia" type="float">
+            <column name="don_gia" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="soLuong" type="int">
+            <column name="so_luong" not-null="true" />
+        </property>
+        <property name="thanhTien" type="double">
+            <column name="thanh_tien" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="vat" type="int">
+            <column name="vat" not-null="true" />
+        </property>
+        <property name="tienThue" type="double">
+            <column name="tien_thue" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="thanhToan" type="double">
+            <column name="thanh_toan" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="hanSuDung" type="date">
+            <column name="han_su_dung" length="10" not-null="true" />
+        </property>
+        <property name="ghiChu" type="string">
+            <column name="ghi_chu" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

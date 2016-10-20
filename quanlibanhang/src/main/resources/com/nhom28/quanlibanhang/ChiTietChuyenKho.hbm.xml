@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 19, 2016 10:57:01 PM by Hibernate Tools 4.0.0 -->
+<!-- Generated Oct 20, 2016 9:05:40 PM by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="com.nhom28.quanlibanhang.pojo.LichSuBanHang" table="lich_su_ban_hang" catalog="quanlibanhang">
+    <class name="com.nhom28.quanlibanhang.pojo.ChiTietChuyenKho" table="chi_tiet_chuyen_kho" catalog="quanlibanhang">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="hoaDon" class="com.nhom28.quanlibanhang.pojo.HoaDon" fetch="select">
-            <column name="id_hoa_don" not-null="true" />
+        <many-to-one name="chuyenKho" class="com.nhom28.quanlibanhang.pojo.ChuyenKho" fetch="select">
+            <column name="id_chuyen_kho" not-null="true" />
         </many-to-one>
         <many-to-one name="hangHoa" class="com.nhom28.quanlibanhang.pojo.HangHoa" fetch="select">
             <column name="id_hang_hoa" not-null="true" />
         </many-to-one>
-        <property name="thaoTac" type="string">
-            <column name="thao_tac" not-null="true" />
+        <property name="soLuong" type="long">
+            <column name="so_luong" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

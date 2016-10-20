@@ -3,16 +3,16 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Oct 20, 2016 9:05:40 PM by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="com.nhom28.quanlibanhang.pojo.NhomHang" table="nhom_hang" catalog="quanlibanhang">
+    <class name="com.nhom28.quanlibanhang.pojo.DonViTinh" table="don_vi_tinh" catalog="quanlibanhang">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <property name="maNhomHang" type="string">
-            <column name="ma_nhom_hang" not-null="true" />
+        <property name="maDonViTinh" type="string">
+            <column name="ma_don_vi_tinh" not-null="true" />
         </property>
-        <property name="tenNhomHang" type="string">
-            <column name="ten_nhom_hang" not-null="true" />
+        <property name="tenDonViTinh" type="string">
+            <column name="ten_don_vi_tinh" not-null="true" />
         </property>
         <property name="ghiChu" type="string">
             <column name="ghi_chu" length="65535" />
@@ -22,7 +22,7 @@
         </property>
         <set name="hangHoas" table="hang_hoa" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="id_nhom_hang" not-null="true" />
+                <column name="id_don_vi_tinh" not-null="true" />
             </key>
             <one-to-many class="com.nhom28.quanlibanhang.pojo.HangHoa" />
         </set>
