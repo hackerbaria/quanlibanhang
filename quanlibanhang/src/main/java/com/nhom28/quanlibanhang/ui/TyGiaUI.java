@@ -50,6 +50,7 @@ public class TyGiaUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
@@ -58,7 +59,6 @@ public class TyGiaUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTable1.setEnabled(false);
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,6 +100,18 @@ public class TyGiaUI extends javax.swing.JFrame {
 				}
             }
         });
+        
+        jButton4.setText("Lưu");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                try {
+					jButton4ActionPerformed(evt);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
+        });
 
         List<TyGia> rs = tyGiaService.getAll();
         DefaultTableModel model = new DefaultTableModel();
@@ -128,9 +140,9 @@ public class TyGiaUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(23, 23, 23)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
+                            .addGap(23, 23, 23)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2)
                                 .addComponent(jLabel3)
@@ -141,15 +153,17 @@ public class TyGiaUI extends javax.swing.JFrame {
                                 .addComponent(jTextField3)
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(23, 23, 23)
+                            .addContainerGap()
                             .addComponent(jButton1)
-                            .addGap(18, 18, 18)
+                            .addGap(14, 14, 14)
                             .addComponent(jButton2)
                             .addGap(18, 18, 18)
-                            .addComponent(jButton3)))
-                    .addGap(36, 36, 36)
+                            .addComponent(jButton3)
+                            .addGap(18, 18, 18)
+                            .addComponent(jButton4)))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(175, Short.MAX_VALUE))
+                    .addContainerGap(172, Short.MAX_VALUE))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jLabel1)
@@ -181,7 +195,8 @@ public class TyGiaUI extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jButton1)
                                 .addComponent(jButton2)
-                                .addComponent(jButton3))))
+                                .addComponent(jButton3)
+                                .addComponent(jButton4))))
                     .addContainerGap(127, Short.MAX_VALUE))
             );
 
@@ -223,13 +238,28 @@ public class TyGiaUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) throws Exception {//GEN-FIRST:event_jButton3ActionPerformed
-    	jTable1.setEnabled(true);
     	int selectedRow = jTable1.getSelectedRow();
         Integer id = Integer.parseInt(jTable1.getModel().getValueAt(selectedRow, 0).toString());
         maLoaiTien = jTable1.getModel().getValueAt(selectedRow, 1).toString();
         loaiTien = jTable1.getModel().getValueAt(selectedRow, 2).toString();
         tyGiaVnd= Double.parseDouble(jTable1.getModel().getValueAt(selectedRow, 3).toString());
+        jTextField1.setText(maLoaiTien);
+        jTextField2.setText(loaiTien);
+        jTextField3.setText(tyGiaVnd.toString());
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+    
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) throws Exception {//GEN-FIRST:event_jButton3ActionPerformed
+    	jTable1.setEnabled(true);
+    	int selectedRow = jTable1.getSelectedRow();
+        Integer id = Integer.parseInt(jTable1.getModel().getValueAt(selectedRow, 0).toString());
+        maLoaiTien = jTextField1.getText();
+        loaiTien = jTextField2.getText();
+        tyGiaVnd= Double.parseDouble(jTextField3.getText());
         tyGiaService.update(id, maLoaiTien, loaiTien, tyGiaVnd);
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
         reloadView();
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -278,6 +308,7 @@ public class TyGiaUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
