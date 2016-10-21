@@ -47,12 +47,17 @@ public abstract class AbstractGenericDao<E extends Serializable>
 
 	@Override	
 	public Serializable save(E entity) {
-		return getSession().save(entity);
+		Transaction tx = getSession().beginTransaction();
+		Serializable serial = getSession().save(entity);
+		tx.commit();
+		return serial;
 	}
 
 	@Override
 	public void saveOrUpdate(E entity) {
+		Transaction tx = getSession().beginTransaction();
 		getSession().saveOrUpdate(entity);
+		tx.commit();
 	}
 
 	@Override
