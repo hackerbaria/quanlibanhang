@@ -28,6 +28,14 @@ public class BoPhan implements java.io.Serializable {
 	}
 
 	public BoPhan(String tenBoPhan, int idNguoiQuanLy, String ghiChu,
+			byte conQuanLy) {
+		this.tenBoPhan = tenBoPhan;
+		this.idNguoiQuanLy = idNguoiQuanLy;
+		this.ghiChu = ghiChu;
+		this.conQuanLy = conQuanLy;
+	}
+	
+	public BoPhan(String tenBoPhan, int idNguoiQuanLy, String ghiChu,
 			byte conQuanLy, Set<NhanVien> nhanViens) {
 		this.tenBoPhan = tenBoPhan;
 		this.idNguoiQuanLy = idNguoiQuanLy;

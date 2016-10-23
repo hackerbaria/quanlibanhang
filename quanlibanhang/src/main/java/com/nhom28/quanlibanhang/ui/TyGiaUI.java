@@ -21,6 +21,7 @@ import com.nhom28.quanlibanhang.service.impl.TyGiaServiceImpl;
  *
  * @author THANHPHONG
  */
+@SuppressWarnings("serial")
 public class TyGiaUI extends javax.swing.JFrame {
 
 	Integer id;
@@ -103,7 +104,7 @@ public class TyGiaUI extends javax.swing.JFrame {
 			public void valueChanged(ListSelectionEvent evt) {
 				if (jTable1.getSelectedRow() >= 0) {
                 	int selectedRow = jTable1.getSelectedRow();
-                    Integer id = Integer.parseInt(jTable1.getModel().getValueAt(selectedRow, 0).toString());
+                    id = Integer.parseInt(jTable1.getModel().getValueAt(selectedRow, 0).toString());
                     maLoaiTien = jTable1.getModel().getValueAt(selectedRow, 1).toString();
                     loaiTien = jTable1.getModel().getValueAt(selectedRow, 2).toString();
                     tyGiaVnd= Double.parseDouble(jTable1.getModel().getValueAt(selectedRow, 3).toString());
@@ -114,27 +115,13 @@ public class TyGiaUI extends javax.swing.JFrame {
 			}
 		});
         
+        loadView();
         
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Tỷ Giá");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Mã Loại Tiền");
-
-        List<TyGia> rs = tyGiaService.getAll();
-        DefaultTableModel model = new DefaultTableModel();
-        String[] columnNames = {"ID", "Mã Loại Tiền", "Loại Tiền", "Tỷ Giá"};
-        model.setColumnIdentifiers(columnNames);
-        jTable1.setModel(model);
-        for(TyGia tyGia : rs){
-            Integer id = tyGia.getId();
-            String ma = tyGia.getMaLoaiTien();
-            String ten = tyGia.getLoaiTien();
-            Double gia = tyGia.getTyGiaVnd();
-            model.addRow(new Object[]{id, ma, ten, gia});
-        }
-        
-        jScrollPane1.setViewportView(jTable1);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Loại Tiền");
@@ -212,7 +199,7 @@ public class TyGiaUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void reloadView() throws SQLException{
+    private void loadView() throws SQLException{
     	List<TyGia> rs = tyGiaService.getAll();
         DefaultTableModel model = new DefaultTableModel();
         String[] columnNames = {"ID", "Mã Loại Tiền", "Loại Tiền", "Tỷ Giá"};
@@ -225,6 +212,10 @@ public class TyGiaUI extends javax.swing.JFrame {
             tyGiaVnd = newTyGia.getTyGiaVnd();
             model.addRow(new Object[]{id, maLoaiTien, loaiTien, tyGiaVnd});
         }
+        
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
         jScrollPane1.setViewportView(jTable1);
     }
     
@@ -234,7 +225,7 @@ public class TyGiaUI extends javax.swing.JFrame {
     	tyGiaVnd = Double.parseDouble(jTextField3.getText());
     	tyGia = new TyGia(maLoaiTien, loaiTien, tyGiaVnd);
     	tyGiaService.add(tyGia);
-    	reloadView();
+    	loadView();
     	
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -242,7 +233,7 @@ public class TyGiaUI extends javax.swing.JFrame {
         int selectedRow = jTable1.getSelectedRow();
         Integer id = Integer.parseInt(jTable1.getModel().getValueAt(selectedRow, 0).toString());
         tyGiaService.delete(id);
-        reloadView();
+        loadView();
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -254,10 +245,8 @@ public class TyGiaUI extends javax.swing.JFrame {
         loaiTien = jTextField2.getText();
         tyGiaVnd= Double.parseDouble(jTextField3.getText());
         tyGiaService.update(id, maLoaiTien, loaiTien, tyGiaVnd);
-        jTextField1.setText("");
-        jTextField2.setText("");
-        jTextField3.setText("");
-        reloadView();
+        
+        loadView();
         
     }//GEN-LAST:event_jButton3ActionPerformed
     

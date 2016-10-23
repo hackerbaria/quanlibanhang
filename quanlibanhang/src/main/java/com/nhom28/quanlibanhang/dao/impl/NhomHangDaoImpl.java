@@ -7,18 +7,18 @@ import java.util.List;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import com.nhom28.quanlibanhang.dao.TyGiaDao;
-import com.nhom28.quanlibanhang.pojo.TyGia;
+import com.nhom28.quanlibanhang.dao.NhomHangDao;
+import com.nhom28.quanlibanhang.pojo.NhomHang;
 
-public class TyGiaDaoImpl extends AbstractGenericDao<TyGia> implements TyGiaDao {
+public class NhomHangDaoImpl extends AbstractGenericDao<NhomHang> implements NhomHangDao {
 
-	@SuppressWarnings({ "unchecked", "rawtypes", "deprecation" })
+	@SuppressWarnings({ "unchecked", "deprecation", "rawtypes" })
 	@Override
-	public List<TyGia> getAll() throws SQLException {
+	public List<NhomHang> getAll() throws SQLException {
 		Transaction tx = getSession().beginTransaction();
-		List<TyGia> list = new ArrayList<>();
+		List<NhomHang> list = new ArrayList<>();
 		try {
-			Query query = getSession().createQuery("from TyGia");
+			Query query = getSession().createQuery("from NhomHang");
 			list = query.list();
 			return list;
 		} catch (Exception e) {
@@ -34,7 +34,7 @@ public class TyGiaDaoImpl extends AbstractGenericDao<TyGia> implements TyGiaDao 
 	public void delete(Integer id) throws SQLException {
 		Transaction tx = getSession().beginTransaction();
 		try {
-			Query query = getSession().createQuery("delete from TyGia where id = :id");
+			Query query = getSession().createQuery("delete from NhomHang where id = :id");
 			query.setInteger("id", id);
 			query.executeUpdate();
 		} catch (Exception e) {
@@ -46,15 +46,16 @@ public class TyGiaDaoImpl extends AbstractGenericDao<TyGia> implements TyGiaDao 
 	
 	@SuppressWarnings({ "deprecation", "rawtypes" })
 	@Override
-	public void update(Integer id, String maLoaiTien, String loaiTien, Double tyGiaVnd)
-			throws SQLException {
+	public void update(Integer id, String maNhomHang, String tenNhomHang,
+			String ghiChu, byte conQuanLy) throws SQLException {
 		Transaction tx = getSession().beginTransaction();
 		try {
-			String str = "update TyGia set maLoaiTien = :maLoaiTien, loaiTien = :loaiTien, tyGiaVnd = :tyGiaVnd where id = :id";
+			String str = "update NhomHang set maNhomHang = :maNhomHang, tenNhomHang = :tenNhomHang, ghiChu = :ghiChu, conQuanLy = :conQuanLy where id = :id";
 			Query query = getSession().createQuery(str);
-			query.setString("maLoaiTien", maLoaiTien);
-			query.setString("loaiTien", maLoaiTien);
-			query.setDouble("tyGiaVnd", tyGiaVnd);
+			query.setString("maNhomHang", maNhomHang);
+			query.setString("tenNhomHang", tenNhomHang);
+			query.setString("ghiChu", ghiChu);
+			query.setByte("conQuanLy", conQuanLy);
 			query.setInteger("id", id);
 			query.executeUpdate();
 		} catch (Exception e) {

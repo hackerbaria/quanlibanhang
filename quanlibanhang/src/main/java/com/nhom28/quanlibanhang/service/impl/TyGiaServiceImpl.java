@@ -3,8 +3,6 @@ package com.nhom28.quanlibanhang.service.impl;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import com.nhom28.quanlibanhang.dao.TyGiaDao;
 import com.nhom28.quanlibanhang.dao.impl.TyGiaDaoImpl;
 import com.nhom28.quanlibanhang.pojo.TyGia;
@@ -15,9 +13,8 @@ public class TyGiaServiceImpl implements TyGiaService {
 	TyGiaDao tiGiaDao = new TyGiaDaoImpl();
 	
 	@Override
-	@Transactional
     public List<TyGia> getAll() throws SQLException {
-		return tiGiaDao.getAllExcchangeRates();
+		return tiGiaDao.getAll();
     }
 
 	@Override

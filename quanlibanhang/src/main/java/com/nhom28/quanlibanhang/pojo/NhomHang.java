@@ -26,6 +26,14 @@ public class NhomHang implements java.io.Serializable {
 		this.tenNhomHang = tenNhomHang;
 		this.conQuanLy = conQuanLy;
 	}
+	
+	public NhomHang(String maNhomHang, String tenNhomHang, String ghiChu,
+			byte conQuanLy) {
+		this.maNhomHang = maNhomHang;
+		this.tenNhomHang = tenNhomHang;
+		this.ghiChu = ghiChu;
+		this.conQuanLy = conQuanLy;
+	}
 
 	public NhomHang(String maNhomHang, String tenNhomHang, String ghiChu,
 			byte conQuanLy, Set<HangHoa> hangHoas) {

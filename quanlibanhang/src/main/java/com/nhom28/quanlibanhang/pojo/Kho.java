@@ -42,6 +42,23 @@ public class Kho implements java.io.Serializable {
 		this.conQuanLy = conQuanLy;
 	}
 
+	public Kho(String maKho, String tenKho,
+			int idNguoiLienHe, String nguoiLienHe, String diaChi,
+			String dienThoai, String diDong, String fax, String email,
+			String dienGiai, byte conQuanLy) {
+		this.maKho = maKho;
+		this.tenKho = tenKho;
+		this.idNguoiLienHe = idNguoiLienHe;
+		this.nguoiLienHe = nguoiLienHe;
+		this.diaChi = diaChi;
+		this.dienThoai = dienThoai;
+		this.diDong = diDong;
+		this.fax = fax;
+		this.email = email;
+		this.dienGiai = dienGiai;
+		this.conQuanLy = conQuanLy;
+	}
+	
 	public Kho(NhanVien nhanVien, String maKho, String tenKho,
 			int idNguoiLienHe, String nguoiLienHe, String diaChi,
 			String dienThoai, String diDong, String fax, String email,

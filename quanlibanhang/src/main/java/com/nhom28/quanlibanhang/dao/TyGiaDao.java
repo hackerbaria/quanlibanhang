@@ -10,7 +10,7 @@ public interface TyGiaDao extends GenericDao<TyGia> {
 	/**
 	 * @return ResultSet
 	 */
-	public List<TyGia> getAllExcchangeRates() throws SQLException;
+	public List<TyGia> getAll() throws SQLException;
 	
 	public void delete(Integer id) throws SQLException;
 	
