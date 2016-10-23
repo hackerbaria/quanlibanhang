@@ -12,7 +12,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
-import com.nhom28.quanlibanhang.pojo.BoPhan;
+import com.nhom28.quanlibanhang.dto.BoPhanDto;
 import com.nhom28.quanlibanhang.service.BoPhanService;
 import com.nhom28.quanlibanhang.service.impl.BoPhanServiceImpl;
 
@@ -24,11 +24,11 @@ public class BoPhanUI extends javax.swing.JFrame {
 
 	private Integer id;
 	private String tenBoPhan;
-	private int idNguoiQuanLy;
+	private String tenNguoiQuanLy;
 	private String ghiChu;
 	private byte conQuanLy;
 	
-	BoPhan boPhan;
+	BoPhanDto boPhanDto;
 	BoPhanService boPhanService = new BoPhanServiceImpl();
 	
     /**
@@ -72,11 +72,11 @@ public class BoPhanUI extends javax.swing.JFrame {
                 	int selectedRow = jTable1.getSelectedRow();
                     id = Integer.parseInt(jTable1.getModel().getValueAt(selectedRow, 0).toString());
                     tenBoPhan = jTable1.getModel().getValueAt(selectedRow, 1).toString();
-                    idNguoiQuanLy = Integer.parseInt(jTable1.getModel().getValueAt(selectedRow, 2).toString());
+                    tenNguoiQuanLy = jTable1.getModel().getValueAt(selectedRow, 2).toString();
                     ghiChu= jTable1.getModel().getValueAt(selectedRow, 3).toString();
                     conQuanLy = Byte.parseByte(jTable1.getModel().getValueAt(selectedRow, 4).toString());
                     jTextField1.setText(tenBoPhan);
-                    jTextField3.setText(String.valueOf(idNguoiQuanLy));
+                    jTextField3.setText(tenNguoiQuanLy);
                     jTextField4.setText(ghiChu);
                     if(conQuanLy == 1){
                     	jCheckBox1.setSelected(true);
@@ -99,7 +99,7 @@ public class BoPhanUI extends javax.swing.JFrame {
         jLabel6.setText("Ghi Chú");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setText("Người Quản Lý");
+        jLabel3.setText("ID Người Quản Lý");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Còn Quản Lý");
@@ -239,18 +239,18 @@ public class BoPhanUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loadView() throws SQLException{
-    	List<BoPhan> rs = boPhanService.getAll();
+    	List<BoPhanDto> rs = boPhanService.getAll();
         DefaultTableModel model = new DefaultTableModel();
-        String[] columnNames = {"ID", "Tên Bộ Phận", "ID Người Quản Lý", "Ghi Chú", "Còn Quản Lý"};
+        String[] columnNames = {"ID", "Tên Bộ Phận", "Người Quản Lý", "Ghi Chú", "Còn Quản Lý"};
         model.setColumnIdentifiers(columnNames);
         jTable1.setModel(model);
-        for(BoPhan boPhan : rs){
+        for(BoPhanDto boPhan : rs){
             id = boPhan.getId();
             tenBoPhan = boPhan.getTenBoPhan();
-            idNguoiQuanLy = boPhan.getIdNguoiQuanLy();
+            tenNguoiQuanLy = boPhan.getTenNguoiQuanLy();
             ghiChu = boPhan.getGhiChu();
             conQuanLy = boPhan.getConQuanLy();
-            model.addRow(new Object[]{id, tenBoPhan, idNguoiQuanLy, ghiChu, conQuanLy});
+            model.addRow(new Object[]{id, tenBoPhan, tenNguoiQuanLy, ghiChu, conQuanLy});
         }
         
         jTextField1.setText("");
@@ -270,12 +270,12 @@ public class BoPhanUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {//GEN-FIRST:event_jButton1ActionPerformed
     	tenBoPhan = jTextField1.getText();
-        idNguoiQuanLy = Integer.parseInt(jTextField3.getText());
+        tenNguoiQuanLy = jTextField3.getText();
         ghiChu = jTextField4.getText();
         conQuanLy = (byte) (jCheckBox1.isSelected() ? 1 : 0);
     	
-    	boPhan = new BoPhan(tenBoPhan, idNguoiQuanLy, ghiChu, conQuanLy);
-    	boPhanService.add(boPhan);
+    	boPhanDto = new BoPhanDto(tenBoPhan, tenNguoiQuanLy, ghiChu, conQuanLy);
+    	boPhanService.add(boPhanDto);
     	loadView();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -291,10 +291,10 @@ public class BoPhanUI extends javax.swing.JFrame {
     	int selectedRow = jTable1.getSelectedRow();
         id = Integer.parseInt(jTable1.getModel().getValueAt(selectedRow, 0).toString());
         tenBoPhan = jTextField1.getText();
-        idNguoiQuanLy = Integer.parseInt(jTextField3.getText());
+        tenNguoiQuanLy = jTextField3.getText();
     	ghiChu = jTextField4.getText();
     	conQuanLy = (byte) (jCheckBox1.isSelected() ? 1 : 0);
-    	boPhanService.update(id, tenBoPhan, idNguoiQuanLy, ghiChu, conQuanLy);
+    	boPhanService.update(id, tenBoPhan, tenNguoiQuanLy, ghiChu, conQuanLy);
         loadView();
     }//GEN-LAST:event_jButton3ActionPerformed
     
