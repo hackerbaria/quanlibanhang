@@ -3,17 +3,17 @@ package com.nhom28.quanlibanhang.service;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.nhom28.quanlibanhang.pojo.BoPhan;
+import com.nhom28.quanlibanhang.dto.BoPhanDto;
 
 public interface BoPhanService {
 	
-	public List<BoPhan> getAll() throws SQLException;
+	public List<BoPhanDto> getAll() throws SQLException;
 	
-	public void add(BoPhan boPhan);
+	public void add(BoPhanDto boPhanDto) throws SQLException;
 	
 	public void delete(Integer id) throws SQLException;
 	
 	public void update(Integer id, String tenBoPhan,
-			int idNguoiQuanLy, String ghiChu, byte conQuanLy)
+			String NguoiQuanLy, String ghiChu, byte conQuanLy)
 	throws Exception;
 }
