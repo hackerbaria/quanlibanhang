@@ -19,20 +19,8 @@ public class BoPhanServiceImpl implements BoPhanService {
     }
 
 	@Override
-	public void add(BoPhanDto boPhanDto) throws SQLException {
-		String tenBoPhan = boPhanDto.getTenBoPhan();
-		Integer idNguoiQuanLy = boPhanDto.getIdNguoiQuanLy();
-		String tenNguoiQuanLy = boPhanDto.getTenNguoiQuanLy();
-		String ghiChu = boPhanDto.getGhiChu();
-		byte conQuanLy = boPhanDto.getConQuanLy();
-		
-		BoPhan boPhan = new BoPhan(tenBoPhan, idNguoiQuanLy, ghiChu, conQuanLy);
-		
-		// udate bo phan
+	public void add(BoPhan boPhan) throws SQLException {
 		boPhanDao.save(boPhan);
-		// update name of nhanvien
-		boPhanDao.updateNhanVien(idNguoiQuanLy, tenNguoiQuanLy);
-		
 	}
  
 	@Override
@@ -42,8 +30,17 @@ public class BoPhanServiceImpl implements BoPhanService {
 	
 	@Override
 	public void update(Integer id, String tenBoPhan,
-			String nguoiQuanLy, String ghiChu, byte conQuanLy) throws SQLException{
-		boPhanDao.updateBoPhan(id, tenBoPhan, ghiChu, conQuanLy);
+			int idNguoiQuanLy, String ghiChu, byte conQuanLy) throws SQLException{
+		boPhanDao.update(id, tenBoPhan, idNguoiQuanLy, ghiChu, conQuanLy);
 	}
  
+	@Override
+	public List<String> getListStaffNames() throws SQLException{
+		return boPhanDao.getListStaffNames();
+	}
+	
+	@Override
+	public Integer getStaffId(String tenNhanVien) throws SQLException{
+		return boPhanDao.getStaffId(tenNhanVien);
+	}
 }

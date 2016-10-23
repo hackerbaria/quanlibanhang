@@ -15,10 +15,11 @@ public interface BoPhanDao extends GenericDao<BoPhan> {
 	
 	public void delete(Integer id) throws SQLException;
 	
-	public void updateBoPhan(Integer id, String tenBoPhan, 
+	public void update(Integer id, String tenBoPhan, Integer idNguoiQuanLy,
 			String ghiChu, byte conQuanLy) throws SQLException;
 	
-	public void updateNhanVien(Integer idNguoiQuanLy, 
-			String tenNguoiQuanLy) throws SQLException;
 	
+	public List<String> getListStaffNames() throws SQLException;
+	
+	public Integer getStaffId(String tenNhanVien) throws SQLException;
 }

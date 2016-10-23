@@ -10,6 +10,7 @@ import org.hibernate.query.Query;
 import com.nhom28.quanlibanhang.dao.BoPhanDao;
 import com.nhom28.quanlibanhang.dto.BoPhanDto;
 import com.nhom28.quanlibanhang.pojo.BoPhan;
+import com.sun.xml.internal.messaging.saaj.packaging.mime.util.QEncoderStream;
 
 public class BoPhanDaoImpl extends AbstractGenericDao<BoPhan> implements BoPhanDao {
 
@@ -17,18 +18,31 @@ public class BoPhanDaoImpl extends AbstractGenericDao<BoPhan> implements BoPhanD
 	@Override
 	public List<BoPhanDto> getAll() throws SQLException {
 		Transaction tx = getSession().beginTransaction();
-		List<BoPhanDto> list = new ArrayList<>();
+		List<BoPhan> listBoPhans = new ArrayList<>();
+		List<BoPhanDto> listBoPhanDtos = new ArrayList<>();
 		try {
-			Query query = getSession().createQuery("select a.tenBoPhan, b.tenNhanVien, a.ghiChu, a.conQuanLy"
-					+ " from BoPhan a, NhanVien b where a.idNguoiQuanLy = b.id");
-			list = query.list();
-			return list;
+			Query query = getSession().createQuery(" from BoPhan");
+			listBoPhans = query.list();
+			for(BoPhan boPhan : listBoPhans){
+				Integer id = boPhan.getId();
+				String tenBoPhan = boPhan.getTenBoPhan();
+				Integer idNguoiQuanLy = boPhan.getIdNguoiQuanLy();
+				query = getSession().createQuery("select tenNhanVien from NhanVien where id = :id");
+				query.setInteger("id", idNguoiQuanLy);
+				String tenNhanVien = query.getResultList().get(0).toString();
+				String ghiChu = boPhan.getGhiChu();
+				Byte conQuanLy = boPhan.getConQuanLy();
+				BoPhanDto boPhanDto = new BoPhanDto(id, tenBoPhan, tenNhanVien, ghiChu, conQuanLy);
+				listBoPhanDtos.add(boPhanDto);
+			}
+			
+			return listBoPhanDtos;
 		} catch (Exception e) {
 			System.out.println("erorr" + e);
 		} finally {
 			tx.commit();
 		}
-		return list;
+		return listBoPhanDtos;
 	}
 	
 	@SuppressWarnings({ "deprecation", "rawtypes" })
@@ -48,14 +62,16 @@ public class BoPhanDaoImpl extends AbstractGenericDao<BoPhan> implements BoPhanD
 	
 	@SuppressWarnings({ "deprecation", "rawtypes" })
 	@Override
-	public void updateBoPhan(Integer id, String tenBoPhan,
-			String ghiChu, byte conQuanLy)
+	public void update(Integer id, String tenBoPhan, 
+			Integer idNguoiQuanLy, String ghiChu, byte conQuanLy)
 			throws SQLException {
 		Transaction tx = getSession().beginTransaction();
 		try {
-			String str = "update BoPhan set tenBoPhan = :tenBoPhan, ghiChu = :ghiChu, conQuanLy = :conQuanLy where id = :id";
+			String str = "update BoPhan set tenBoPhan = :tenBoPhan, idNguoiQuanLy = :idNguoiQuanLy"
+					+ ", ghiChu = :ghiChu, conQuanLy = :conQuanLy where id = :id";
 			Query query = getSession().createQuery(str);
 			query.setString("tenBoPhan", tenBoPhan);
+			query.setInteger("idNguoiQuanLy", idNguoiQuanLy);
 			query.setString("ghiChu", ghiChu);
 			query.setByte("conQuanLy", conQuanLy);
 			query.setInteger("id", id);
@@ -67,21 +83,23 @@ public class BoPhanDaoImpl extends AbstractGenericDao<BoPhan> implements BoPhanD
 		}
 	}
 
+	
 	@Override
-	public void updateNhanVien(Integer idNguoiQuanLy, String tenNguoiQuanLy)
-			throws SQLException {
+	public List<String> getListStaffNames() throws SQLException{
 		Transaction tx = getSession().beginTransaction();
-		try {
-			String str = "update NhanVien set tenNhanVien = :tenNhanVien where id = :id";
-			Query query = getSession().createQuery(str);
-			query.setString("tenNhanVien", tenNguoiQuanLy);
-			query.setInteger("id", idNguoiQuanLy);
-			query.executeUpdate();
-		} catch (Exception e) {
-			System.out.println("erorr" + e);
-		} finally {
-			tx.commit();
-		}
-		
+		Query query = getSession().createQuery("select tenNhanVien from NhanVien");
+		List<String> list = query.list();
+		tx.commit();
+		return list;
+	}
+	
+	@Override
+	public Integer getStaffId(String tenNhanVien) throws SQLException{
+		Transaction tx = getSession().beginTransaction();
+		Query query = getSession().createQuery("select id from NhanVien where tenNhanVien = :tenNhanVien");
+		query.setString("tenNhanVien", tenNhanVien);
+		Integer id = (Integer)query.list().get(0);
+		tx.commit();
+		return id;
 	}
 }
