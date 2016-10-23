@@ -6,6 +6,7 @@ import java.util.List;
 import com.nhom28.quanlibanhang.dao.KhoDao;
 import com.nhom28.quanlibanhang.dao.impl.KhoDaoImpl;
 import com.nhom28.quanlibanhang.pojo.Kho;
+import com.nhom28.quanlibanhang.pojo.NhanVien;
 import com.nhom28.quanlibanhang.service.KhoService;
 
 public class KhoServiceImpl implements KhoService {
@@ -32,4 +33,8 @@ public class KhoServiceImpl implements KhoService {
 		khoDao.update(id, kho);
 	}
  
+	@Override
+	public NhanVien getNhanVien(Integer id) throws SQLException{
+		return khoDao.getNhanVien(id);
+	}
 }

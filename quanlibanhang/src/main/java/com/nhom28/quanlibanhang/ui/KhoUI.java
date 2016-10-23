@@ -410,6 +410,8 @@ public class KhoUI extends javax.swing.JFrame {
     	dienGiai = jTextField10.getText();
     	conQuanLy = (byte) (jCheckBox1.isSelected() ? 1 : 0);
     	kho = new Kho(maKho, tenKho, idNguoiLienHe, nguoiLienHe, diaChi, dienThoai, diDong, fax, email, dienGiai, conQuanLy);
+    	NhanVien nv = khoService.getNhanVien(idNguoiLienHe);
+    	kho.setNhanVien(nv);
     	khoService.add(kho);
     	loadView();
     	

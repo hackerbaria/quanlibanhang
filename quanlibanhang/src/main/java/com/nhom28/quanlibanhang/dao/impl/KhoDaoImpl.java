@@ -84,4 +84,14 @@ public class KhoDaoImpl extends AbstractGenericDao<Kho> implements KhoDao {
 			tx.commit();
 		}
 	}
+	
+	@Override
+	public NhanVien getNhanVien(Integer id) throws SQLException{
+		Transaction tx = getSession().beginTransaction();
+		Query query = getSession().createQuery("from NhanVien where id = :id");
+		query.setInteger("id", id);
+		NhanVien nhanVien = (NhanVien)query.list().get(0);
+		tx.commit();
+		return nhanVien;
+	}
 }
