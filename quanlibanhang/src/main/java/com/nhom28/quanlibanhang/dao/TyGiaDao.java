@@ -18,3 +18,4 @@ public interface TyGiaDao extends GenericDao<TyGia> {
 			throws SQLException;
 	
 }
+

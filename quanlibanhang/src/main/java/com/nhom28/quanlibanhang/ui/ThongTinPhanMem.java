@@ -22,6 +22,20 @@ public class ThongTinPhanMem extends javax.swing.JFrame {
      */
     public ThongTinPhanMem() {
         initComponents();
+        loadThongTin();
+    }
+    
+    private void loadThongTin(){
+        ThongTinDonViSuDung infor = service.getThongTinPhanMem();
+        txtDiaChi.setText(infor.getDiaChi());
+        txtDienThoai.setText(infor.getDienThoai());
+        txtEmail.setText(infor.getEmail());
+        txtFax.setText(infor.getFax());
+        txtGPKD.setText(infor.getGiayPhepKinhDoanh());
+        txtLinhVuc.setText(infor.getLinhVuc());
+        txtMaSoThue.setText(infor.getMaSoThue());
+        txtTenDonVi.setText(infor.getTenCongTy());
+        txtWebsite.setText(infor.getWebsite());
     }
 
     /**
@@ -32,8 +46,6 @@ public class ThongTinPhanMem extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-    	
-    	ThongTinDonViSuDung infor = service.getThongTinPhanMem();
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -57,7 +69,7 @@ public class ThongTinPhanMem extends javax.swing.JFrame {
         btnKetThuc = new javax.swing.JButton();
         txtGPKD = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Thong Tin");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -82,7 +94,7 @@ public class ThongTinPhanMem extends javax.swing.JFrame {
         jLabel10.setText("GPKD");
 
         txtTenDonVi.setEditable(false);
-        txtTenDonVi.setText(infor.getTenCongTy());
+        txtTenDonVi.setText("Ten Don Vi");
         txtTenDonVi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTenDonViActionPerformed(evt);
@@ -90,34 +102,42 @@ public class ThongTinPhanMem extends javax.swing.JFrame {
         });
 
         txtDiaChi.setEditable(false);
-        txtDiaChi.setText(infor.getDiaChi());
+        txtDiaChi.setText("Dien Chi");
 
         txtDienThoai.setEditable(false);
-        txtDienThoai.setText(infor.getDienThoai());
+        txtDienThoai.setText("Dien Thoai");
 
         txtFax.setEditable(false);
-        txtFax.setText(infor.getFax());
+        txtFax.setText("Fax");
 
         txtWebsite.setEditable(false);
-        txtWebsite.setText(infor.getWebsite());
+        txtWebsite.setText("Website");
 
         txtEmail.setEditable(false);
-        txtEmail.setText(infor.getEmail());
+        txtEmail.setText("Email");
 
         txtLinhVuc.setEditable(false);
-        txtLinhVuc.setText(infor.getLinhVuc());
+        txtLinhVuc.setText("Linh Vuc");
 
         txtMaSoThue.setEditable(false);
-        txtMaSoThue.setText(infor.getMaSoThue());
+        txtMaSoThue.setText("Ma So Thue");
 
         btnDongY.setText("Đồng Ý");
+        btnDongY.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDongYActionPerformed(evt);
+            }
+        });
 
         btnKetThuc.setText("Kết Thúc");
+        btnKetThuc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKetThucActionPerformed(evt);
+            }
+        });
 
         txtGPKD.setEditable(false);
         txtGPKD.setText("GPKD");
-        
-        
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -224,6 +244,16 @@ public class ThongTinPhanMem extends javax.swing.JFrame {
     private void txtTenDonViActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTenDonViActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTenDonViActionPerformed
+
+    private void btnKetThucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKetThucActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_btnKetThucActionPerformed
+
+    private void btnDongYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDongYActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_btnDongYActionPerformed
 
     /**
      * @param args the command line arguments

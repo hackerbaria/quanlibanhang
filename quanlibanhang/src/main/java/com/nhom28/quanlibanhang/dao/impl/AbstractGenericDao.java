@@ -42,7 +42,11 @@ public abstract class AbstractGenericDao<E extends Serializable>
 
 	@Override
 	public E findById(final Serializable id) {
-		return (E) getSession().get(this.entityClass, id);
+		Transaction tx = getSession().beginTransaction();
+		
+		E e = (E) getSession().get(this.entityClass, id);
+		tx.commit();
+		return e;
 	}
 
 	@Override	
@@ -62,7 +66,9 @@ public abstract class AbstractGenericDao<E extends Serializable>
 
 	@Override
 	public void delete(E entity) {
+		Transaction tx = getSession().beginTransaction();
 		getSession().delete(entity);
+		tx.commit();
 	}
 
 	@Override
@@ -73,11 +79,12 @@ public abstract class AbstractGenericDao<E extends Serializable>
 		}
 	}
 
-	@Override
-	@Transactional(Transactional.TxType.REQUIRES_NEW)
+	@Override	
 	public List<E> findAll() {
-		Transaction tx = getSession().beginTransaction();	
-		return getSession().createCriteria(this.entityClass).list();
+		Transaction tx = getSession().beginTransaction();		
+		List<E> group = getSession().createCriteria(this.entityClass).list();
+		tx.commit();
+		return group;
 	}
 
 	@Override

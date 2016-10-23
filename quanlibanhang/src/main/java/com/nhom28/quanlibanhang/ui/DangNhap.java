@@ -13,6 +13,8 @@ import com.nhom28.quanlibanhang.common.DialogMessages;
 import com.nhom28.quanlibanhang.common.GlobalVariables;
 import com.nhom28.quanlibanhang.service.NguoiDungService;
 import com.nhom28.quanlibanhang.service.impl.NguoiDungServiceImpl;
+import java.awt.Window;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -31,8 +33,10 @@ public class DangNhap extends javax.swing.JFrame {
     public DangNhap() {
         initComponents();
         String userName = prefs.get("user", "");
+        
         if(!userName.equals("")){
             this.txtUsername.setText(userName);
+            this.jcheckboxRemember.setSelected(true);
         }
         String passName = prefs.get("pass", "");
         if(!passName.equals("")){
@@ -169,19 +173,19 @@ public class DangNhap extends javax.swing.JFrame {
 		if (nguoiDungService.checkLogin(username, password)) {
 			GlobalVariables.CURRENT_USER_NAME = username;
 			DialogMessages.infoBox("Dang Nhap thanh cong", "Thanh Cong!");
-			DoiMatKhau doiMatKhauFrame = new DoiMatKhau();
-			doiMatKhauFrame.setVisible(true);
+			MainJFrame mainFrame = new MainJFrame();
+			mainFrame.setVisible(true);
 			
 			setVisible(false);
-	    	dispose();
+                        dispose();
 		} else {
 			DialogMessages.errorBox("Dang Nhap that bai, xin vui long thu lai", "That bai!");
 		}
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnCanCelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCanCelActionPerformed
-        // TODO add your handling code here:
-        System.out.println("Hello Cancel");
+        setVisible(false);
+      
     }//GEN-LAST:event_btnCanCelActionPerformed
 
     private void jcheckboxRememberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcheckboxRememberActionPerformed

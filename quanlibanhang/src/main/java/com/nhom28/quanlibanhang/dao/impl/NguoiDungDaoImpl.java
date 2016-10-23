@@ -15,7 +15,7 @@ public class NguoiDungDaoImpl extends AbstractGenericDao<NguoiDung> implements N
 		boolean flag = false;
 		try {
 		Query employeeTaskQuery = getSession().createQuery(
-                "select taiKhoan from NguoiDung u where taiKhoan=:username and passWord=:password");
+                "select tenDangNhap from NguoiDung u where tenDangNhap=:username and matKhau=:password");
         employeeTaskQuery.setParameter("username", username);
         employeeTaskQuery.setParameter("password", password);
         flag =  employeeTaskQuery.getResultList().size() > 0;
@@ -34,8 +34,8 @@ public class NguoiDungDaoImpl extends AbstractGenericDao<NguoiDung> implements N
 		boolean flag = false;
 		try {
 		Query employeeTaskQuery = getSession().createQuery(
-                "update NguoiDung set passWord=:password "
-                + "where taiKhoan=:username");
+                "update NguoiDung set matKhau=:password "
+                + "where tenDangNhap=:username");
         employeeTaskQuery.setParameter("username", username);
         employeeTaskQuery.setParameter("password", password);
         flag =  employeeTaskQuery.executeUpdate() >0;

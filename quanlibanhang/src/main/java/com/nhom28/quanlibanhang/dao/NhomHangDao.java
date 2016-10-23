@@ -18,3 +18,4 @@ public interface NhomHangDao extends GenericDao<NhomHang> {
 		String ghiChu, byte conQuanLy) throws SQLException;
 	
 }
+

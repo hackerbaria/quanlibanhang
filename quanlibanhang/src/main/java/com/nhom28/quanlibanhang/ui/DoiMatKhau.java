@@ -42,11 +42,11 @@ public class DoiMatKhau extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-        txtCurrentPassword = new javax.swing.JPasswordField();
-        txtNewPassword = new javax.swing.JPasswordField();
-        txtNewPassword2 = new javax.swing.JPasswordField();
+        txtCurrentPassword = new javax.swing.JTextField();
+        txtNewPassword = new javax.swing.JTextField();
+        txtNewPassword2 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Thay Đổi Mật Khẩu");
         setFont(new java.awt.Font("Aharoni", 0, 12)); // NOI18N
 
