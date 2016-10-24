@@ -2,11 +2,14 @@ package com.nhom28.quanlibanhang.service.impl;
 
 import com.nhom28.quanlibanhang.dao.DonViTinhDao;
 import com.nhom28.quanlibanhang.dao.NguoiDungDao;
+import com.nhom28.quanlibanhang.dao.PhanQuyenDao;
 import com.nhom28.quanlibanhang.dao.impl.AbstractGenericDao;
 import com.nhom28.quanlibanhang.dao.impl.DonViTinhDaoImpl;
 import com.nhom28.quanlibanhang.dao.impl.NguoiDungDaoImpl;
+import com.nhom28.quanlibanhang.dao.impl.PhanQuyenDaoImpl;
 import com.nhom28.quanlibanhang.pojo.DonViTinh;
 import com.nhom28.quanlibanhang.pojo.NguoiDung;
+import com.nhom28.quanlibanhang.pojo.PhanQuyen;
 import com.nhom28.quanlibanhang.service.NguoiDungService;
 import java.util.List;
 import javax.transaction.Transactional;
@@ -17,6 +20,8 @@ public class NguoiDungServiceImpl extends AbstractGenericDao<NguoiDung>
 	NguoiDungDao nguoiDungDao = new NguoiDungDaoImpl();
 	
 	DonViTinhDao donViDao = new DonViTinhDaoImpl();
+	
+	PhanQuyenDao phanQuyenDao = new PhanQuyenDaoImpl();
 	
 	@Override
 	//@Transactional(value = Transactional.TxType.MANDATORY)
@@ -53,6 +58,11 @@ public class NguoiDungServiceImpl extends AbstractGenericDao<NguoiDung>
 		@Override
 		public NguoiDung getNguoiDung(String username) {
 			return nguoiDungDao.getNguoiDung(username);
+		}
+
+		@Override
+		public PhanQuyen getPhanQuyen(Integer maQuyen) {			
+			return phanQuyenDao.getQuyenByMaQuyen(maQuyen);
 		}
 
 	

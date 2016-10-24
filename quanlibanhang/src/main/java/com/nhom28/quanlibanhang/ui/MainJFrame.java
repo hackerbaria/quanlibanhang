@@ -6,6 +6,10 @@
 package com.nhom28.quanlibanhang.ui;
 
 import com.nhom28.quanlibanhang.common.GlobalVariables;
+import com.nhom28.quanlibanhang.pojo.PhanQuyen;
+import com.nhom28.quanlibanhang.service.NguoiDungService;
+import com.nhom28.quanlibanhang.service.impl.NguoiDungServiceImpl;
+
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
@@ -26,6 +30,133 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         txtUsername.setText(GlobalVariables.DISPLAY_NAME);
         txtChucVu.setText(GlobalVariables.CURRENT_ROLE);
+        phanQuyen();
+    }
+    
+    private void phanQuyen(){
+    	int idQuyen = GlobalVariables.CURRENT_USER_PHAN_QUYEN;
+    	
+    	NguoiDungService service = new NguoiDungServiceImpl();
+    	
+    	// lay danh sach quyen duoi database theo nhom nguoi dung
+    	PhanQuyen quyens = service.getPhanQuyen(idQuyen);
+    	
+    	// neu khong co quyen (=0) --> set enable = false
+    	byte nhatKyHeThong = quyens.getNhatKyHeThong();
+    	if(nhatKyHeThong == 0) {
+    		btnNhatKyHeThong.setEnabled(false);
+    	}
+    	
+    	byte backup = quyens.getBackup();
+    	if(backup == 0) {
+    		btnSaoLuu.setEnabled(false);
+    	}
+    	
+    	
+    	byte restore = quyens.getRestore();
+    	if(restore == 0) {
+    		btnPhucHoi.setEnabled(false);
+    	}
+    	
+    	//private byte phanQuyen;
+    	byte khuVuc = quyens.getKhuVuc();
+    	if(khuVuc == 0) {
+    		btnKhuVuc.setEnabled(false);
+    	}    	
+    	
+    	byte khachHang = quyens.getKhachHang();
+    	if(khachHang == 0) {
+    		btnBanHang.setEnabled(false);
+    	}
+    	
+    	
+    	byte nhaPhanPhoi = quyens.getNhaPhanPhoi();
+    	if(nhaPhanPhoi == 0) {
+    		btnNhaPhanPhoi.setEnabled(false);
+    	}
+    	
+    	byte hangHoa = quyens.getHangHoa();
+    	if(hangHoa == 0) {
+    		btnHangHoa.setEnabled(false);
+    	}
+    	
+    	byte donViTinh = quyens.getDonViTinh();
+    	if(donViTinh == 0) {
+    		btnDonViTinh.setEnabled(false);
+    	}
+    	
+    	byte nhomHang = quyens.getNhomHang();
+    	if(nhomHang == 0) {
+    		btnNhomHang.setEnabled(false);
+    	}
+    	
+    	byte kho = quyens.getKho();
+    	if(kho == 0) {
+    		btnKho.setEnabled(false);
+    	}
+    	
+    	byte boPhan = quyens.getBoPhan();
+    	if(boPhan == 0) {
+    		btnBoPhan.setEnabled(false);
+    	}
+    	
+    	byte nhanVien = quyens.getNhanVien();
+    	if(nhanVien == 0) {
+    		btnNhanVien.setEnabled(false);
+    	}
+    	
+    	
+    	byte muaHang = quyens.getMuaHang();
+    	if(muaHang == 0) {
+    		btnMuaHang.setEnabled(false);
+    	}
+    	
+    	byte banHang = quyens.getBanHang();
+    	if(banHang == 0) {
+    		btnBanHang.setEnabled(false);
+    	}
+    	
+    	byte chuyenKho = quyens.getChuyenKho();
+    	if(chuyenKho == 0) {
+    		btnChuyenKho.setEnabled(false);
+    	}
+    	
+    	
+    	byte tonKho = quyens.getTonKho();
+    	if(tonKho == 0) {
+    		btnTonKho.setEnabled(false);
+    	}
+    	
+    	byte thuTien = quyens.getThuTien();
+    	if(thuTien == 0) {
+    		btnThuTien.setEnabled(false);
+    	}
+    	
+    	byte traTien = quyens.getTraTien();
+    	if(traTien == 0) {
+    		btnTraTien.setEnabled(false);
+    	}
+    	
+    	
+    	byte nguoiDung = quyens.getNguoiDung();
+    	if(nguoiDung == 0) {
+    		btnNguoiDung.setEnabled(false);
+    	}
+    	
+    	// khong xai nut nay
+    	//byte lichSuHangHoa = quyens.getLichSuHangHoa();
+    	
+    	byte report = quyens.getReport();
+    	if(report == 0) {
+    		btnBaoCao.setEnabled(false);
+    	}
+    	byte tyGia = quyens.getTyGia();
+    	if(tyGia == 0) {
+    		btnTyGia.setEnabled(false);
+    	}  	
+    	
+    	
+    	
     }
 
     /**
@@ -102,7 +233,7 @@ public class MainJFrame extends javax.swing.JFrame {
         btnChuyenKho = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
-        btnChuyenKho1 = new javax.swing.JButton();
+        btnBaoCao = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
@@ -716,8 +847,13 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Báo Cáo", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_BOTTOM));
 
-        btnChuyenKho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DoanhThu.png"))); // NOI18N
-        btnChuyenKho1.setToolTipText("Mua Hàng");
+        btnBaoCao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DoanhThu.png"))); // NOI18N
+        btnBaoCao.setToolTipText("Mua Hàng");
+        btnBaoCao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBaoCaoActionPerformed(evt);
+            }
+        });
 
         jLabel26.setText("Doanh Thu");
 
@@ -728,13 +864,13 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnChuyenKho1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBaoCao, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel26)))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addComponent(btnChuyenKho1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBaoCao, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel26)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -997,7 +1133,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
         GlobalVariables.CURRENT_USER_NAME = "";
-        GlobalVariables.CURRENT_USER_PHAN_QUYEN = "";
+        GlobalVariables.CURRENT_USER_PHAN_QUYEN = 0;
         
         DangNhap login = new DangNhap();
 	login.setVisible(true);
@@ -1050,6 +1186,10 @@ public class MainJFrame extends javax.swing.JFrame {
         npp.setVisible(true);
     }//GEN-LAST:event_btnNhaPhanPhoiActionPerformed
 
+    private void btnBaoCaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaoCaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBaoCaoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1088,9 +1228,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBanHang;
+    private javax.swing.JButton btnBaoCao;
     private javax.swing.JButton btnBoPhan;
     private javax.swing.JButton btnChuyenKho;
-    private javax.swing.JButton btnChuyenKho1;
     private javax.swing.JButton btnDangXuat;
     private javax.swing.JButton btnDoiMatKhau;
     private javax.swing.JButton btnDonViTinh;

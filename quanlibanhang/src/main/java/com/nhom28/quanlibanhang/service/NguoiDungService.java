@@ -4,6 +4,8 @@ import com.nhom28.quanlibanhang.pojo.DonViTinh;
 import javax.transaction.Transactional;
 
 import com.nhom28.quanlibanhang.pojo.NguoiDung;
+import com.nhom28.quanlibanhang.pojo.PhanQuyen;
+
 import java.util.List;
 
 
@@ -35,4 +37,6 @@ public interface NguoiDungService {
     List<DonViTinh> getDonViTinhList();
     
     boolean deleteDonViTinh(int id);
+    
+    PhanQuyen getPhanQuyen(Integer maQuyen);
 }

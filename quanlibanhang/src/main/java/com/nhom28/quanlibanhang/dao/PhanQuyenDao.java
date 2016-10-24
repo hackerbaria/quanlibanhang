@@ -4,6 +4,6 @@ import com.nhom28.quanlibanhang.pojo.PhanQuyen;
 
 public interface PhanQuyenDao extends GenericDao<PhanQuyen> {
 	
-	PhanQuyen getQuyenByMaQuyen(String maQuyen);
+	PhanQuyen getQuyenByMaQuyen(Integer maQuyen);
 
 }

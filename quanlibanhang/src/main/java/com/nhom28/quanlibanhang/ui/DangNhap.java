@@ -176,7 +176,7 @@ public class DangNhap extends javax.swing.JFrame {
 			
 			// gan gia tri cho 1 so bien static, dung o man hinh chinh
 			GlobalVariables.CURRENT_ROLE = n.getNhomNguoiDung().getTenNhom();
-			GlobalVariables.CURRENT_USER_PHAN_QUYEN = String.valueOf(n.getNhomNguoiDung().getId());
+			GlobalVariables.CURRENT_USER_PHAN_QUYEN = n.getNhomNguoiDung().getId();
 			GlobalVariables.DISPLAY_NAME = n.getNhanVien().getTenNhanVien();
 			
 			System.out.println(n.getNhomNguoiDung().getTenNhom());

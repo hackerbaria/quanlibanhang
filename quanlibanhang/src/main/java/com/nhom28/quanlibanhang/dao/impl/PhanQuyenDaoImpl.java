@@ -13,11 +13,13 @@ import com.nhom28.quanlibanhang.pojo.PhanQuyen;
 public class PhanQuyenDaoImpl extends AbstractGenericDao<PhanQuyen> implements PhanQuyenDao {
 
 	@Override
-	public PhanQuyen getQuyenByMaQuyen(String maQuyen) {
+	public PhanQuyen getQuyenByMaQuyen(Integer maQuyen) {
 		Transaction tx = getSession().beginTransaction(); 
 		PhanQuyen phanQuyen = new PhanQuyen();
+		
+		
 		try {
-			String hql = "FROM PhanQuyen E WHERE E.NhomNguoiDung.id = :ma";
+			String hql = "FROM PhanQuyen E WHERE E.nhomNguoiDung.id = :ma";
 			Query query = getSession().createQuery(hql);
 			query.setParameter("ma", maQuyen);
 			List results = ((org.hibernate.Query) query).list();
