@@ -12,23 +12,6 @@ import com.nhom28.quanlibanhang.pojo.NhomHang;
 
 public class NhomHangDaoImpl extends AbstractGenericDao<NhomHang> implements NhomHangDao {
 
-	@SuppressWarnings({ "unchecked", "deprecation", "rawtypes" })
-	@Override
-	public List<NhomHang> getAll() throws SQLException {
-		Transaction tx = getSession().beginTransaction();
-		List<NhomHang> list = new ArrayList<>();
-		try {
-			Query query = getSession().createQuery("from NhomHang");
-			list = query.list();
-			return list;
-		} catch (Exception e) {
-			System.out.println("erorr" + e);
-		} finally {
-			tx.commit();
-		}
-		return list;
-	}
-	
 	@SuppressWarnings({ "deprecation", "rawtypes" })
 	@Override
 	public void delete(Integer id) throws SQLException {

@@ -30,6 +30,23 @@ public class NhanVien implements java.io.Serializable {
 	public NhanVien() {
 	}
 
+	public NhanVien(String maNhanVien, String tenNhanVien,
+			byte gioiTinh, String diaChi, byte conDocThan, String chucVu,
+			String email, String dienThoai, String diDong, String dienGiai,
+			byte conQuanLy) {
+		this.maNhanVien = maNhanVien;
+		this.tenNhanVien = tenNhanVien;
+		this.gioiTinh = gioiTinh;
+		this.diaChi = diaChi;
+		this.conDocThan = conDocThan;
+		this.chucVu = chucVu;
+		this.email = email;
+		this.dienThoai = dienThoai;
+		this.diDong = diDong;
+		this.dienGiai = dienGiai;
+		this.conQuanLy = conQuanLy;
+	}
+	
 	public NhanVien(BoPhan boPhan, String maNhanVien, String tenNhanVien,
 			byte gioiTinh, byte conDocThan, String chucVu, String dienGiai,
 			byte conQuanLy) {

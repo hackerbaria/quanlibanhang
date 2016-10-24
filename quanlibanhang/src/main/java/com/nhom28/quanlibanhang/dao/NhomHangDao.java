@@ -10,8 +10,6 @@ public interface NhomHangDao extends GenericDao<NhomHang> {
 	/**
 	 * @return ResultSet
 	 */
-	public List<NhomHang> getAll() throws SQLException;
-	
 	public void delete(Integer id) throws SQLException;
 	
 	public void update(Integer id, String maNhomHang, String tenNhomHang,

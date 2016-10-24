@@ -14,7 +14,7 @@ public class NhomHangServiceImpl implements NhomHangService {
 	
 	@Override
     public List<NhomHang> getAll() throws SQLException {
-		return nhomHangDao.getAll();
+		return nhomHangDao.findAll();
     }
 
 	@Override

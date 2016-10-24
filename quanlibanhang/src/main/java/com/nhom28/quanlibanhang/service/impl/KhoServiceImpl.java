@@ -15,7 +15,7 @@ public class KhoServiceImpl implements KhoService {
 	
 	@Override
     public List<Kho> getAll() throws SQLException {
-		return khoDao.getAll();
+		return khoDao.findAll();
     }
 
 	@Override

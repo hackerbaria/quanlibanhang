@@ -15,23 +15,6 @@ import com.nhom28.quanlibanhang.pojo.TyGia;
 
 public class KhoDaoImpl extends AbstractGenericDao<Kho> implements KhoDao {
 
-	@SuppressWarnings({ "unchecked", "rawtypes", "deprecation" })
-	@Override
-	public List<Kho> getAll() throws SQLException {
-		Transaction tx = getSession().beginTransaction();
-		List<Kho> list = new ArrayList<>();
-		try {
-			Query query = getSession().createQuery("from Kho");
-			list = query.list();
-			return list;
-		} catch (Exception e) {
-			System.out.println("erorr" + e);
-		} finally {
-			tx.commit();
-		}
-		return list;
-	}
-	
 	@Override	
 	public Serializable save(Kho entity) {
 		Transaction tx = getSession().beginTransaction();
