@@ -1,5 +1,7 @@
 package com.nhom28.quanlibanhang.dao.impl;
 
+import java.util.List;
+
 import javax.persistence.Query;
 
 import org.hibernate.Transaction;
@@ -45,5 +47,25 @@ public class NguoiDungDaoImpl extends AbstractGenericDao<NguoiDung> implements N
         	System.out.println("erorr" + e);
         } 		
         return flag;
+	}
+
+	@Override
+	public NguoiDung getNguoiDung(String userName) {
+		Transaction tx = getSession().beginTransaction(); 
+		NguoiDung nguoiDung = new NguoiDung();
+		try {
+			String hql = "FROM NguoiDung E WHERE E.tenDangNhap = :username";
+			Query query = getSession().createQuery(hql);
+			query.setParameter("username", userName);
+			List results = ((org.hibernate.Query) query).list();
+			if(!results.isEmpty()) {
+				nguoiDung = (NguoiDung) results.get(0);
+			}
+        tx.commit();	
+        } catch (Exception e) {
+        	tx.rollback();
+        	System.out.println("erorr" + e);
+        } 		
+        return nguoiDung;
 	}
 }

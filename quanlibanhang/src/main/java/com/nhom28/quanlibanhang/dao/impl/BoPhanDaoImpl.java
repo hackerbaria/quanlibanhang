@@ -10,7 +10,6 @@ import org.hibernate.query.Query;
 import com.nhom28.quanlibanhang.dao.BoPhanDao;
 import com.nhom28.quanlibanhang.dto.BoPhanDto;
 import com.nhom28.quanlibanhang.pojo.BoPhan;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.util.QEncoderStream;
 
 public class BoPhanDaoImpl extends AbstractGenericDao<BoPhan> implements BoPhanDao {
 

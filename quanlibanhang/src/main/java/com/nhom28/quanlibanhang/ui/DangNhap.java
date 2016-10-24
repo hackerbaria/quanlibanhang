@@ -11,6 +11,7 @@ import javax.swing.SwingWorker;
 
 import com.nhom28.quanlibanhang.common.DialogMessages;
 import com.nhom28.quanlibanhang.common.GlobalVariables;
+import com.nhom28.quanlibanhang.pojo.NguoiDung;
 import com.nhom28.quanlibanhang.service.NguoiDungService;
 import com.nhom28.quanlibanhang.service.impl.NguoiDungServiceImpl;
 import java.awt.Window;
@@ -171,6 +172,14 @@ public class DangNhap extends javax.swing.JFrame {
        
 		
 		if (nguoiDungService.checkLogin(username, password)) {
+			NguoiDung n = nguoiDungService.getNguoiDung(username);
+			
+			// gan gia tri cho 1 so bien static, dung o man hinh chinh
+			GlobalVariables.CURRENT_ROLE = n.getNhomNguoiDung().getTenNhom();
+			GlobalVariables.CURRENT_USER_PHAN_QUYEN = String.valueOf(n.getNhomNguoiDung().getId());
+			GlobalVariables.DISPLAY_NAME = n.getNhanVien().getTenNhanVien();
+			
+			System.out.println(n.getNhomNguoiDung().getTenNhom());
 			GlobalVariables.CURRENT_USER_NAME = username;
 			DialogMessages.infoBox("Dang Nhap thanh cong", "Thanh Cong!");
 			MainJFrame mainFrame = new MainJFrame();

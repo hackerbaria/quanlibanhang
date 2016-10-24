@@ -18,6 +18,8 @@ public interface NguoiDungService {
 	@Transactional
 	boolean checkLogin(String username, String password);
 	
+	NguoiDung getNguoiDung(String username);
+	
 	/**
 	 * update password of current user
 	 * @param username

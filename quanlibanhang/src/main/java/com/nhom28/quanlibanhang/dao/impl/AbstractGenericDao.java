@@ -39,6 +39,10 @@ public abstract class AbstractGenericDao<E extends Serializable>
     protected Session getSession() {    	  	
 		return this.sessionFactory.getCurrentSession();
 	}
+    
+    protected Session openSession() {    	  	
+		return this.sessionFactory.openSession();
+	}
 
 	@Override
 	public E findById(final Serializable id) {

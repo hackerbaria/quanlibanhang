@@ -42,7 +42,7 @@ public class ThongTinJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("About Phần Mềm Quản Lý Bàn Hàng");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/eclipse256.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/banhangicon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -61,7 +61,7 @@ public class ThongTinJFrame extends javax.swing.JFrame {
                 .addGap(35, 35, 35))
         );
 
-        jLabel2.setText("<html>\nEclipse Standard/SDK<br><br>\n\nVersion: Kepler Release<br>\nBuild id: 20130614-0229<br><br>\n\n(c) Copyright Eclipse contributors and others 2000, 2013.  All rights reserved.<br>\nVisit <a href=\"http://eclipse.org/eclipse\">http://eclipse.org/eclipse</a><br><br>\n\nThis product includes software developed by the<br>\nApache Software Foundation<a href=\" http://apache.org/\"> http://apache.org/</a>\n\n</html>");
+        jLabel2.setText("<html>\nPhần Mềm Quản Lý Bàn Hàng<br><br>\n\nPhiên bản: 1.0<br>\nSố Serial: 20130614-0229<br><br>\n\n(c) Bản Quyền phần mềm 2002 - 2016.  Đã được đăng kí thông tin.<br>\nVisit <a href=\"http://hcmus.edu.vn\">http://hcmus.edu.vn</a><br><br>\n\nSản Phẩm Này Được Phát Triển Bởi Nhóm 28<br>\n1. Lê Hữu Thu Ngoc<br>\n2. Ngô Trần Minh Duy<br>\n3. Lê Thị Mỹ Huyền\n \n\n</html>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

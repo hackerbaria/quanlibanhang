@@ -78,7 +78,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/eclipse256.png"/>
+              <Image iconType="3" name="/images/banhangicon.png"/>
             </Property>
           </Properties>
         </Component>
@@ -86,7 +86,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;Eclipse Standard/SDK&lt;br&gt;&lt;br&gt;&#xa;&#xa;Version: Kepler Release&lt;br&gt;&#xa;Build id: 20130614-0229&lt;br&gt;&lt;br&gt;&#xa;&#xa;(c) Copyright Eclipse contributors and others 2000, 2013.  All rights reserved.&lt;br&gt;&#xa;Visit &lt;a href=&quot;http://eclipse.org/eclipse&quot;&gt;http://eclipse.org/eclipse&lt;/a&gt;&lt;br&gt;&lt;br&gt;&#xa;&#xa;This product includes software developed by the&lt;br&gt;&#xa;Apache Software Foundation&lt;a href=&quot; http://apache.org/&quot;&gt; http://apache.org/&lt;/a&gt;&#xa;&#xa;&lt;/html&gt;"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;Ph&#x1ea7;n M&#x1ec1;m Qu&#x1ea3;n L&#xfd; B&#xe0;n H&#xe0;ng&lt;br&gt;&lt;br&gt;&#xa;&#xa;Phi&#xea;n b&#x1ea3;n: 1.0&lt;br&gt;&#xa;S&#x1ed1; Serial: 20130614-0229&lt;br&gt;&lt;br&gt;&#xa;&#xa;(c) B&#x1ea3;n Quy&#x1ec1;n ph&#x1ea7;n m&#x1ec1;m 2002 - 2016.  &#x110;&#xe3; &#x111;&#x1b0;&#x1ee3;c &#x111;&#x103;ng k&#xed; th&#xf4;ng tin.&lt;br&gt;&#xa;Visit &lt;a href=&quot;http://hcmus.edu.vn&quot;&gt;http://hcmus.edu.vn&lt;/a&gt;&lt;br&gt;&lt;br&gt;&#xa;&#xa;S&#x1ea3;n Ph&#x1ea9;m N&#xe0;y &#x110;&#x1b0;&#x1ee3;c Ph&#xe1;t Tri&#x1ec3;n B&#x1edf;i Nh&#xf3;m 28&lt;br&gt;&#xa;1. L&#xea; H&#x1eef;u Thu Ngoc&lt;br&gt;&#xa;2. Ng&#xf4; Tr&#x1ea7;n Minh Duy&lt;br&gt;&#xa;3. L&#xea; Th&#x1ecb; M&#x1ef9; Huy&#x1ec1;n&#xa; &#xa;&#xa;&lt;/html&gt;"/>
       </Properties>
     </Component>
   </SubComponents>

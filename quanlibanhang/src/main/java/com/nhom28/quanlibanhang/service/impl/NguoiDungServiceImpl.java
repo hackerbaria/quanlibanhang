@@ -50,6 +50,11 @@ public class NguoiDungServiceImpl extends AbstractGenericDao<NguoiDung>
 			return true;
 		}
 
+		@Override
+		public NguoiDung getNguoiDung(String username) {
+			return nguoiDungDao.getNguoiDung(username);
+		}
+
 	
 
 }

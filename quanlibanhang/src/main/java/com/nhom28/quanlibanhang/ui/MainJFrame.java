@@ -24,6 +24,8 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() {
         initComponents();
+        txtUsername.setText(GlobalVariables.DISPLAY_NAME);
+        txtChucVu.setText(GlobalVariables.CURRENT_ROLE);
     }
 
     /**
@@ -111,6 +113,10 @@ public class MainJFrame extends javax.swing.JFrame {
         btnThongTinPM = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        txtUsername = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        txtChucVu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Phần Mềm Quản Lý Bàn Hàng");
@@ -357,6 +363,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnNhaPhanPhoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/NhaPhanPhoi.png"))); // NOI18N
         btnNhaPhanPhoi.setToolTipText("Nhà Phân Phối");
+        btnNhaPhanPhoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNhaPhanPhoiActionPerformed(evt);
+            }
+        });
 
         jLabel12.setText("<html>Nhà<br>Phân Phối</html>");
 
@@ -401,6 +412,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnKho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Kho (2).png"))); // NOI18N
         btnKho.setToolTipText("Kho");
+        btnKho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKhoActionPerformed(evt);
+            }
+        });
 
         jLabel13.setText("Kho");
 
@@ -416,9 +432,19 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnHangHoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hanghoa123 (1).png"))); // NOI18N
         btnHangHoa.setToolTipText("Hàng Hóa");
+        btnHangHoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHangHoaActionPerformed(evt);
+            }
+        });
 
         btnNhomHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nhomhang (1).png"))); // NOI18N
         btnNhomHang.setToolTipText("Nhóm Hàng");
+        btnNhomHang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNhomHangActionPerformed(evt);
+            }
+        });
 
         jLabel15.setText("Nhóm Hàng");
 
@@ -488,6 +514,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnBoPhan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BoPhan.png"))); // NOI18N
         btnBoPhan.setToolTipText("Bộ Phận");
+        btnBoPhan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBoPhanActionPerformed(evt);
+            }
+        });
 
         btnNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nhanvien--2-.png"))); // NOI18N
         btnNhanVien.setToolTipText("Nhân Viên");
@@ -828,14 +859,38 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Chào Mừng Bạn Đến Với Phần Mềm Quản Lý Bán Hàng");
 
+        jLabel30.setText("Xin Chào,");
+
+        txtUsername.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txtUsername.setForeground(new java.awt.Color(255, 0, 102));
+        txtUsername.setText("Ten Nguoi Dung");
+
+        jLabel32.setText("Chức Vụ:");
+
+        txtChucVu.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txtChucVu.setText("Chức Vụ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
             .addGroup(layout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel32)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtChucVu))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel30)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -844,7 +899,15 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addGap(0, 129, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(txtUsername))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(txtChucVu))
+                .addGap(0, 65, Short.MAX_VALUE))
         );
 
         pack();
@@ -944,6 +1007,49 @@ public class MainJFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnDangXuatActionPerformed
 
+    private void btnKhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKhoActionPerformed
+        try {
+            // TODO add your handling code here:
+            KhoUI kho = new KhoUI();
+            kho.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btnKhoActionPerformed
+
+    private void btnNhomHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNhomHangActionPerformed
+        try {
+            // TODO add your handling code here:
+            NhomHangUI nhomHang = new NhomHangUI();
+            nhomHang.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btnNhomHangActionPerformed
+
+    private void btnHangHoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHangHoaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHangHoaActionPerformed
+
+    private void btnBoPhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoPhanActionPerformed
+        try {
+            // TODO add your handling code here:
+            BoPhanUI boPhan = new BoPhanUI();
+            boPhan.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btnBoPhanActionPerformed
+
+    private void btnNhaPhanPhoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNhaPhanPhoiActionPerformed
+        // TODO add your handling code here:
+        NhaPhanPhoiFrame npp = new NhaPhanPhoiFrame();
+        npp.setVisible(true);
+    }//GEN-LAST:event_btnNhaPhanPhoiActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1033,6 +1139,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1057,5 +1165,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel txtChucVu;
+    private javax.swing.JLabel txtUsername;
     // End of variables declaration//GEN-END:variables
 }
