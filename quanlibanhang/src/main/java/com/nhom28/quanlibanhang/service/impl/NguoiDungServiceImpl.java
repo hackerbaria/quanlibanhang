@@ -65,6 +65,11 @@ public class NguoiDungServiceImpl extends AbstractGenericDao<NguoiDung>
 			return phanQuyenDao.getQuyenByMaQuyen(maQuyen);
 		}
 
+		@Override
+		public List<NguoiDung> getAllNguoiDung() {
+			return nguoiDungDao.findAll();
+		}
+
 	
 
 }

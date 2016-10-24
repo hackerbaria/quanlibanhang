@@ -77,10 +77,12 @@ public abstract class AbstractGenericDao<E extends Serializable>
 
 	@Override
 	public void deleteAll() {
+		Transaction tx = getSession().beginTransaction();	
 		List<E> entities = findAll();
 		for (E entity : entities) {
 			getSession().delete(entity);
 		}
+		tx.commit();
 	}
 
 	@Override	

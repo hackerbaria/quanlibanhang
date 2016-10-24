@@ -277,6 +277,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnNhatKyHeThong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/NhatKeHeThong.png"))); // NOI18N
         btnNhatKyHeThong.setToolTipText("Nhật Ký Hệ Thống");
+        btnNhatKyHeThong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNhatKyHeThongActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("<html>Nhật Ký<br>Hệ Thống</html>");
 
@@ -1189,6 +1194,12 @@ public class MainJFrame extends javax.swing.JFrame {
     private void btnBaoCaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaoCaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBaoCaoActionPerformed
+
+    private void btnNhatKyHeThongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNhatKyHeThongActionPerformed
+        // TODO add your handling code here:
+        NhatKyHeThongUI nhatKy = new NhatKyHeThongUI();
+        nhatKy.setVisible(true);
+    }//GEN-LAST:event_btnNhatKyHeThongActionPerformed
 
     /**
      * @param args the command line arguments

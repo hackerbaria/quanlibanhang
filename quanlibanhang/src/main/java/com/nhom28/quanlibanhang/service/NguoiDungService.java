@@ -39,4 +39,6 @@ public interface NguoiDungService {
     boolean deleteDonViTinh(int id);
     
     PhanQuyen getPhanQuyen(Integer maQuyen);
+    
+    List<NguoiDung> getAllNguoiDung();
 }
