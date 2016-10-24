@@ -658,6 +658,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nhanvien--2-.png"))); // NOI18N
         btnNhanVien.setToolTipText("Nhân Viên");
+        btnNhanVien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNhanVienActionPerformed(evt);
+            }
+        });
 
         jLabel18.setText("Bộ Phận");
 
@@ -1200,6 +1205,18 @@ public class MainJFrame extends javax.swing.JFrame {
         NhatKyHeThongUI nhatKy = new NhatKyHeThongUI();
         nhatKy.setVisible(true);
     }//GEN-LAST:event_btnNhatKyHeThongActionPerformed
+
+    private void btnNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNhanVienActionPerformed
+        // TODO add your handling code here:
+        NhanVienUI nhanVien;
+        try {
+            nhanVien = new NhanVienUI();
+            nhanVien.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btnNhanVienActionPerformed
 
     /**
      * @param args the command line arguments
