@@ -14,11 +14,9 @@ import javax.swing.table.DefaultTableModel;
 
 import com.nhom28.quanlibanhang.dto.ComboBoxItem;
 import com.nhom28.quanlibanhang.pojo.BoPhan;
-import com.nhom28.quanlibanhang.pojo.Kho;
 import com.nhom28.quanlibanhang.pojo.NhanVien;
 import com.nhom28.quanlibanhang.service.NhanVienService;
 import com.nhom28.quanlibanhang.service.impl.NhanVienServiceImpl;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /**
  *
