@@ -752,6 +752,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnMuaHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MuaHang.png"))); // NOI18N
         btnMuaHang.setToolTipText("Mua Hàng");
+        btnMuaHang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMuaHangActionPerformed(evt);
+            }
+        });
 
         btnBanHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BanHang.png"))); // NOI18N
         btnBanHang.setToolTipText("Bán Hàng");
@@ -1247,6 +1252,12 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnTonKhoActionPerformed
+
+    private void btnMuaHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMuaHangActionPerformed
+        // TODO add your handling code here:
+        MuaHangUI muaHang = new MuaHangUI();
+        muaHang.setVisible(true);
+    }//GEN-LAST:event_btnMuaHangActionPerformed
 
     /**
      * @param args the command line arguments

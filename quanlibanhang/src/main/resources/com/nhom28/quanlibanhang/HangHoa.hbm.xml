@@ -38,7 +38,7 @@
         <property name="tonKhoHienTai" type="long">
             <column name="ton_kho_hien_tai" not-null="true" />
         </property>
-        <property name="hinhAnh" type="string">
+        <property name="hinhAnh" type="blob">
             <column name="hinh_anh" />
         </property>
         <property name="laDichVu" type="byte">

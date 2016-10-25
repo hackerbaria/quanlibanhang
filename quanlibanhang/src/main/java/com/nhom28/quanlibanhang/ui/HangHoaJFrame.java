@@ -8,15 +8,19 @@ package com.nhom28.quanlibanhang.ui;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+import com.nhom28.quanlibanhang.common.DialogMessages;
 import com.nhom28.quanlibanhang.common.GlobalVariables;
+import com.nhom28.quanlibanhang.dto.ComboItem;
 import com.nhom28.quanlibanhang.pojo.HangHoa;
 import com.nhom28.quanlibanhang.pojo.KhachHang;
+import com.nhom28.quanlibanhang.pojo.KhuVuc;
 import com.nhom28.quanlibanhang.service.HangHoaService;
 import com.nhom28.quanlibanhang.service.impl.HangHoaServiceImpl;
 
@@ -198,7 +202,22 @@ public class HangHoaJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCapNhatActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        // TODO add your handling code here:
+    	int dialogResult = JOptionPane.showConfirmDialog(null, "Bạn có muốn Xoá không?", "Xác Nhận?", JOptionPane.YES_NO_OPTION);
+
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            
+                try {
+                	HangHoa hh = hangHoaService.findHangHoaByMa(selectItem);
+            		hangHoaService.delete(hh);
+                } catch (Exception ex) {
+                	DialogMessages.errorBox("Không Thể Xóa Dữ Liệu Này - Khóa Ngoại", "Không Xóa Được");
+                }
+        		
+        		
+                loadRecords();
+            
+            
+        }
     }//GEN-LAST:event_btnXoaActionPerformed
 
     /**
