@@ -36,6 +36,9 @@ public class NhomHangUI extends javax.swing.JFrame {
      */
     public NhomHangUI() throws SQLException {
         initComponents();
+        if(jTable1.getRowCount() > 0) {
+        	jTable1.changeSelection(0, 0, false, false);
+        }
     }
 
     /**

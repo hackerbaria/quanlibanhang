@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
@@ -35,6 +36,7 @@ public class NhaPhanPhoiFrame extends javax.swing.JFrame {
     public NhaPhanPhoiFrame() {
         initComponents();
         myInitComponents();
+        jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
             try {
                 loadRecords();
             } catch (SQLException ex) {

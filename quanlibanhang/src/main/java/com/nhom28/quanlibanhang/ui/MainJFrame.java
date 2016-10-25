@@ -494,6 +494,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnKhachHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Customer.png"))); // NOI18N
         btnKhachHang.setToolTipText("Khách Hàng");
+        btnKhachHang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKhachHangActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("<html>Khách<br> Hàng</html>");
 
@@ -1217,6 +1222,12 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnNhanVienActionPerformed
+
+    private void btnKhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKhachHangActionPerformed
+        // TODO add your handling code here:
+        KhachHangFrame khachHang = new KhachHangFrame();
+        khachHang.setVisible(true);
+    }//GEN-LAST:event_btnKhachHangActionPerformed
 
     /**
      * @param args the command line arguments

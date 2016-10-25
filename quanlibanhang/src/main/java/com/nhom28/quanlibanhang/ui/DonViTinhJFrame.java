@@ -104,6 +104,9 @@ public class DonViTinhJFrame extends javax.swing.JFrame {
     public DonViTinhJFrame() {
         initComponents();
         btnSua.setText("Cập Nhật");
+        if(jTable1.getRowCount() > 0) {
+        	jTable1.changeSelection(0, 0, false, false);
+        }
        
         
     }

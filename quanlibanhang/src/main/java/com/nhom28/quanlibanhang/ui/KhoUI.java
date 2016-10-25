@@ -44,6 +44,9 @@ public class KhoUI extends javax.swing.JFrame {
      */
     public KhoUI() throws SQLException {
         initComponents();
+        if(jTable1.getRowCount() > 0) {
+        	jTable1.changeSelection(0, 0, false, false);
+        }
     }
 
     /**
