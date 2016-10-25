@@ -1,5 +1,7 @@
 package com.nhom28.quanlibanhang.service.impl;
 
+import java.util.List;
+
 import com.nhom28.quanlibanhang.dao.DonViTinhDao;
 import com.nhom28.quanlibanhang.dao.impl.DonViTinhDaoImpl;
 import com.nhom28.quanlibanhang.pojo.DonViTinh;
@@ -19,6 +21,11 @@ public class DonViTinhServiceImpl implements DonViTinhService {
 	public void updateDonViTinh(DonViTinh entity) {
 		donViTinhDao.saveOrUpdate(entity);
 		
+	}
+
+	@Override
+	public List<DonViTinh> getAll() {		
+		return donViTinhDao.findAll();
 	}
 
 }

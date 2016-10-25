@@ -7,4 +7,6 @@ public final  class GlobalVariables {
 	
 	public static String DISPLAY_NAME;
 	
+	public static String TEMP;
+	
 }

@@ -81,21 +81,33 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Xem Chi Ti&#x1ebf;t"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXemChiTietActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnThemMoi">
       <Properties>
         <Property name="text" type="java.lang.String" value="Th&#xea;m M&#x1edb;i"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThemMoiActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCapNhat">
       <Properties>
         <Property name="text" type="java.lang.String" value="S&#x1eed;a"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCapNhatActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnXoa">
       <Properties>
         <Property name="text" type="java.lang.String" value="X&#xf3;a H&#xe0;ng H&#xf3;a"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

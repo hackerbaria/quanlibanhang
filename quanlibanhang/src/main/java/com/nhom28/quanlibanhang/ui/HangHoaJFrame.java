@@ -5,18 +5,90 @@
  */
 package com.nhom28.quanlibanhang.ui;
 
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
+import com.nhom28.quanlibanhang.common.GlobalVariables;
+import com.nhom28.quanlibanhang.pojo.HangHoa;
+import com.nhom28.quanlibanhang.pojo.KhachHang;
+import com.nhom28.quanlibanhang.service.HangHoaService;
+import com.nhom28.quanlibanhang.service.impl.HangHoaServiceImpl;
+
 /**
  *
  * @author Google
  */
 public class HangHoaJFrame extends javax.swing.JFrame {
+	
+	HangHoaService hangHoaService = new HangHoaServiceImpl();
+	
+	int selectItem = 0;
 
     /**
      * Creates new form HangHoaJFrame
      */
     public HangHoaJFrame() {
         initComponents();
+        loadRecords();
+        jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        
+        jTable1.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent evt) {
+				if (jTable1.getSelectedRow() >= 0) {
+                	int selectedRow = jTable1.getSelectedRow();
+                	selectItem = Integer.parseInt(jTable1.getModel().getValueAt(selectedRow, 0).toString());
+                    
+                }
+			}
+		});
     }
+    
+	private void loadRecords() {
+
+		List<HangHoa> hangHoaList = hangHoaService.getAllHangHoa();
+		String titleColumns[] = { "ID", "Nhóm Hàng", "Mã Hàng Hóa",
+				"Mã Vạch", "Tên Hàng Hóa", "Đơn Vị Tính", "Xuất Xứ",
+				"Thuế", "Tồn Kho Tối Thiểu", "Tồn Kho Hiện Tại",
+				"Nhà Phân Phối", "Giá Mua", "Giá Bán Sỉ", "Giá Bán Lẻ"};
+		TableModel tableModel = new DefaultTableModel(titleColumns, 0) {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return true;
+			}
+		};
+
+		jTable1.setModel(tableModel);
+		for (int i = 0; i < hangHoaList.size(); i++) {
+			HangHoa hh = hangHoaList.get(i);
+			int ma = hh.getId();
+			String nhomHang = hh.getNhomHang().getTenNhomHang();
+			String maHangHoa = hh.getMaHangHoa();
+			String maVach = hh.getMaVachNhaSanXuat();
+			String tenHangHoa = hh.getTenHangHoa();
+			String donViTinh = hh.getDonViTinh().getTenDonViTinh();
+			String xuatXuat = hh.getXuatXu();
+
+			String thue = hh.getThue();
+			long tonKhoToiThieu = hh.getTonKhoToiThieu();
+			long tonKhoHienTai = hh.getTonKhoHienTai();
+			String nhaPhanPhoi = hh.getNhaPhanPhoi().getTenNhaPhanPhoi();
+			double giaMua = hh.getGiaMua();
+			double giaBanSi = hh.getGiaBanSi();
+			double giaBanLe = hh.getGiaBanLe();
+			
+			Object[] data = { ma, nhomHang, maHangHoa, maVach, tenHangHoa, donViTinh, xuatXuat,
+					thue, tonKhoToiThieu, tonKhoHienTai, nhaPhanPhoi,
+					giaMua, giaBanSi, giaBanLe};
+			((DefaultTableModel) tableModel).addRow(data);
+		}
+
+	}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,12 +123,32 @@ public class HangHoaJFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         btnXemChiTiet.setText("Xem Chi Tiết");
+        btnXemChiTiet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXemChiTietActionPerformed(evt);
+            }
+        });
 
         btnThemMoi.setText("Thêm Mới");
+        btnThemMoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemMoiActionPerformed(evt);
+            }
+        });
 
         btnCapNhat.setText("Sửa");
+        btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCapNhatActionPerformed(evt);
+            }
+        });
 
         btnXoa.setText("Xóa Hàng Hóa");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,6 +182,24 @@ public class HangHoaJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnXemChiTietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXemChiTietActionPerformed
+    	GlobalVariables.TEMP = String.valueOf(selectItem);
+    	CapNhatHangHoaFrame capNhatHangHang = new CapNhatHangHoaFrame();        
+        capNhatHangHang.setVisible(true);
+    }//GEN-LAST:event_btnXemChiTietActionPerformed
+
+    private void btnThemMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemMoiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnThemMoiActionPerformed
+
+    private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCapNhatActionPerformed
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnXoaActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1187,6 +1187,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnHangHoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHangHoaActionPerformed
         // TODO add your handling code here:
+        HangHoaJFrame hangHoa = new HangHoaJFrame();
+        hangHoa.setVisible(true);
     }//GEN-LAST:event_btnHangHoaActionPerformed
 
     private void btnBoPhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoPhanActionPerformed
