@@ -744,6 +744,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnTonKho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/TonKho.png"))); // NOI18N
         btnTonKho.setToolTipText("Tồn Kho");
+        btnTonKho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTonKhoActionPerformed(evt);
+            }
+        });
 
         btnMuaHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MuaHang.png"))); // NOI18N
         btnMuaHang.setToolTipText("Mua Hàng");
@@ -1228,6 +1233,18 @@ public class MainJFrame extends javax.swing.JFrame {
         KhachHangFrame khachHang = new KhachHangFrame();
         khachHang.setVisible(true);
     }//GEN-LAST:event_btnKhachHangActionPerformed
+
+    private void btnTonKhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTonKhoActionPerformed
+        // TODO add your handling code here:
+        TonKhoUI tonKho;
+        try {
+            tonKho = new TonKhoUI();
+            tonKho.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btnTonKhoActionPerformed
 
     /**
      * @param args the command line arguments
