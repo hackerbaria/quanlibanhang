@@ -11,5 +11,7 @@ public interface DonViTinhService {
 	void updateDonViTinh(DonViTinh entity);
 	
 	List<DonViTinh> getAll();
+	
+	DonViTinh findById(Integer id);
 
 }

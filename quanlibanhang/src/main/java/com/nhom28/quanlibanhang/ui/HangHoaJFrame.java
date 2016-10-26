@@ -189,12 +189,17 @@ public class HangHoaJFrame extends javax.swing.JFrame {
 
     private void btnXemChiTietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXemChiTietActionPerformed
     	GlobalVariables.TEMP = String.valueOf(selectItem);
+    	CapNhatHangHoaFrame.trangThai = 0;
+    	
     	CapNhatHangHoaFrame capNhatHangHang = new CapNhatHangHoaFrame();        
         capNhatHangHang.setVisible(true);
     }//GEN-LAST:event_btnXemChiTietActionPerformed
 
     private void btnThemMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemMoiActionPerformed
-        // TODO add your handling code here:
+    	CapNhatHangHoaFrame.trangThai = 1;
+    	CapNhatHangHoaFrame capNhat = new CapNhatHangHoaFrame();
+        
+        capNhat.setVisible(true);
     }//GEN-LAST:event_btnThemMoiActionPerformed
 
     private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatActionPerformed

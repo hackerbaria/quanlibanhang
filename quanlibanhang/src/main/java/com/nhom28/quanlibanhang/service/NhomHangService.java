@@ -15,4 +15,6 @@ public interface NhomHangService {
 	
 	public void update(Integer id, String maNhomHang, String tenNhomHang,
 			String ghiChu, byte conQuanLy) throws SQLException;
+	
+	NhomHang findById(Integer id);
 }

@@ -33,6 +33,11 @@ public class NhomHangServiceImpl implements NhomHangService {
 		nhomHangDao.update(id, maNhomHang, tenNhomHang, ghiChu, conQuanLy);
 		
 	}
+
+	@Override
+	public NhomHang findById(Integer id) {		
+		return nhomHangDao.findById(id);
+	}
 	
 	
  

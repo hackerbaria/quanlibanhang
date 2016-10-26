@@ -28,4 +28,9 @@ public class DonViTinhServiceImpl implements DonViTinhService {
 		return donViTinhDao.findAll();
 	}
 
+	@Override
+	public DonViTinh findById(Integer id) {
+		return donViTinhDao.findById(id);
+	}
+
 }

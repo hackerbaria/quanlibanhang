@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 import org.apache.commons.lang3.StringUtils;
 
+import com.nhom28.quanlibanhang.common.DialogMessages;
 import com.nhom28.quanlibanhang.dto.ComboBoxItem;
 import com.nhom28.quanlibanhang.pojo.HangHoa;
 import com.nhom28.quanlibanhang.pojo.MuaHang;
@@ -692,6 +693,8 @@ public class BanHangUI extends javax.swing.JFrame {
 		muaHang.setTongSoLuong(tongSoLuong);
 		
 		muaHangService.saveMuaHang(muaHang);
+		
+		DialogMessages.infoBox("Bán hàng thành công", "Thành Công");
 	}
 
 	private double tinhToan(double giaMua, int soLuong, double giamGia) {
