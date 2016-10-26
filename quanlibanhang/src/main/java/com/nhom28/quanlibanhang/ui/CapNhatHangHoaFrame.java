@@ -234,7 +234,7 @@ public class CapNhatHangHoaFrame extends javax.swing.JFrame {
 
         jLabel11.setText("jLabel11");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Câp Nhật Hàng Hóa & Dịch Vụ");
 
         jPanel1.setLayout(new java.awt.GridLayout(1, 0));

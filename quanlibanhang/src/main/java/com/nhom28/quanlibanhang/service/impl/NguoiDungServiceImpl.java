@@ -2,13 +2,16 @@ package com.nhom28.quanlibanhang.service.impl;
 
 import com.nhom28.quanlibanhang.dao.DonViTinhDao;
 import com.nhom28.quanlibanhang.dao.NguoiDungDao;
+import com.nhom28.quanlibanhang.dao.NhomNguoiDungDao;
 import com.nhom28.quanlibanhang.dao.PhanQuyenDao;
 import com.nhom28.quanlibanhang.dao.impl.AbstractGenericDao;
 import com.nhom28.quanlibanhang.dao.impl.DonViTinhDaoImpl;
 import com.nhom28.quanlibanhang.dao.impl.NguoiDungDaoImpl;
+import com.nhom28.quanlibanhang.dao.impl.NhomNguoiDungDaoImpl;
 import com.nhom28.quanlibanhang.dao.impl.PhanQuyenDaoImpl;
 import com.nhom28.quanlibanhang.pojo.DonViTinh;
 import com.nhom28.quanlibanhang.pojo.NguoiDung;
+import com.nhom28.quanlibanhang.pojo.NhomNguoiDung;
 import com.nhom28.quanlibanhang.pojo.PhanQuyen;
 import com.nhom28.quanlibanhang.service.NguoiDungService;
 import java.util.List;
@@ -68,6 +71,23 @@ public class NguoiDungServiceImpl extends AbstractGenericDao<NguoiDung>
 		@Override
 		public List<NguoiDung> getAllNguoiDung() {
 			return nguoiDungDao.findAll();
+		}
+
+		@Override
+		public List<NhomNguoiDung> getAllNhomNguoiDung() {
+			NhomNguoiDungDao nhomNguoiDungDao = new NhomNguoiDungDaoImpl();
+			return nhomNguoiDungDao.findAll();
+		}
+
+		@Override
+		public NguoiDung getNguoiDungByMa(int id) {			
+			return nguoiDungDao.findById(id);
+		}
+
+		@Override
+		public void update(NguoiDung entity) {
+			nguoiDungDao.saveOrUpdate(entity);
+			
 		}
 
 	

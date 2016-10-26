@@ -760,6 +760,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnBanHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BanHang.png"))); // NOI18N
         btnBanHang.setToolTipText("Bán Hàng");
+        btnBanHang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBanHangActionPerformed(evt);
+            }
+        });
 
         jLabel20.setText("Mua Hàng");
 
@@ -805,10 +810,10 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Công Nợ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_BOTTOM));
 
         btnTraTien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/TraTien.png"))); // NOI18N
-        btnTraTien.setToolTipText("Mua Hàng");
+        btnTraTien.setToolTipText("Trả Tiền");
 
         btnThuTien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ThuTien.png"))); // NOI18N
-        btnThuTien.setToolTipText("Mua Hàng");
+        btnThuTien.setToolTipText("Thu Tiền");
 
         jLabel23.setText("Thu Tiền");
 
@@ -847,7 +852,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tiện Ích", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_BOTTOM));
 
         btnChuyenKho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ChuyenKho.png"))); // NOI18N
-        btnChuyenKho.setToolTipText("Mua Hàng");
+        btnChuyenKho.setToolTipText("Chuyển Kho");
 
         jLabel25.setText("Chuyển Kho");
 
@@ -873,7 +878,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Báo Cáo", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_BOTTOM));
 
         btnBaoCao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DoanhThu.png"))); // NOI18N
-        btnBaoCao.setToolTipText("Mua Hàng");
+        btnBaoCao.setToolTipText("Doanh Thu");
         btnBaoCao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBaoCaoActionPerformed(evt);
@@ -1076,6 +1081,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnNguoiDungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNguoiDungActionPerformed
         // TODO add your handling code here:
+        NguoiDungJFrame nguoiDung = new NguoiDungJFrame();
+        nguoiDung.setVisible(true);
     }//GEN-LAST:event_btnNguoiDungActionPerformed
 
     private void btnDoiMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoiMatKhauActionPerformed
@@ -1255,9 +1262,14 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnMuaHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMuaHangActionPerformed
         // TODO add your handling code here:
-        MuaHangUI muaHang = new MuaHangUI();
-        muaHang.setVisible(true);
+       
     }//GEN-LAST:event_btnMuaHangActionPerformed
+
+    private void btnBanHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanHangActionPerformed
+        // TODO add your handling code here:
+        BanHangUI banHang = new BanHangUI();
+        banHang.setVisible(true);
+    }//GEN-LAST:event_btnBanHangActionPerformed
 
     /**
      * @param args the command line arguments

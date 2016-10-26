@@ -42,9 +42,9 @@ public class DoiMatKhau extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-        txtCurrentPassword = new javax.swing.JTextField();
-        txtNewPassword = new javax.swing.JTextField();
-        txtNewPassword2 = new javax.swing.JTextField();
+        txtNewPassword = new javax.swing.JPasswordField();
+        txtCurrentPassword = new javax.swing.JPasswordField();
+        txtNewPassword2 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Thay Đổi Mật Khẩu");
@@ -96,8 +96,8 @@ public class DoiMatKhau extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCurrentPassword)
                             .addComponent(txtNewPassword)
+                            .addComponent(txtCurrentPassword)
                             .addComponent(txtNewPassword2, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))))
                 .addContainerGap(91, Short.MAX_VALUE))
         );
@@ -198,8 +198,8 @@ public class DoiMatKhau extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField txtCurrentPassword;
-    private javax.swing.JTextField txtNewPassword;
-    private javax.swing.JTextField txtNewPassword2;
+    private javax.swing.JPasswordField txtCurrentPassword;
+    private javax.swing.JPasswordField txtNewPassword;
+    private javax.swing.JPasswordField txtNewPassword2;
     // End of variables declaration//GEN-END:variables
 }

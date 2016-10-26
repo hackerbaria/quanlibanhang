@@ -4,6 +4,7 @@ import com.nhom28.quanlibanhang.pojo.DonViTinh;
 import javax.transaction.Transactional;
 
 import com.nhom28.quanlibanhang.pojo.NguoiDung;
+import com.nhom28.quanlibanhang.pojo.NhomNguoiDung;
 import com.nhom28.quanlibanhang.pojo.PhanQuyen;
 
 import java.util.List;
@@ -21,6 +22,10 @@ public interface NguoiDungService {
 	boolean checkLogin(String username, String password);
 	
 	NguoiDung getNguoiDung(String username);
+	
+	NguoiDung getNguoiDungByMa(int id);
+	
+	void update(NguoiDung entity);
 	
 	/**
 	 * update password of current user
@@ -41,4 +46,6 @@ public interface NguoiDungService {
     PhanQuyen getPhanQuyen(Integer maQuyen);
     
     List<NguoiDung> getAllNguoiDung();
+    
+    List<NhomNguoiDung> getAllNhomNguoiDung();
 }

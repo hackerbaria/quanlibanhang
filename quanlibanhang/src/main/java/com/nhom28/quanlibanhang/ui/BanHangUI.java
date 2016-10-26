@@ -30,7 +30,7 @@ import com.nhom28.quanlibanhang.service.impl.MuaHangServiceImpl;
  * 
  * @author lehuyen
  */
-public class MuaHangUI extends javax.swing.JFrame {
+public class BanHangUI extends javax.swing.JFrame {
 
 	private MuaHangService muaHangService = new MuaHangServiceImpl();
 	DefaultTableModel model;
@@ -41,7 +41,7 @@ public class MuaHangUI extends javax.swing.JFrame {
 	/**
 	 * Creates new form HoaDon
 	 */
-	public MuaHangUI() {
+	public BanHangUI() {
 		try {
 			initComponents();
 			
@@ -66,7 +66,7 @@ public class MuaHangUI extends javax.swing.JFrame {
 	 */
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed"
-	// desc="Generated Code">//GEN-BEGIN:initComponents
+	// desc="Generated Code">                          
 	private void initComponents() throws Exception {
 
 		jLabel1 = new javax.swing.JLabel();
@@ -794,25 +794,27 @@ public class MuaHangUI extends javax.swing.JFrame {
 				}
 			}
 		} catch (ClassNotFoundException ex) {
-			java.util.logging.Logger.getLogger(MuaHangUI.class.getName()).log(
+			java.util.logging.Logger.getLogger(BanHangUI.class.getName()).log(
 					java.util.logging.Level.SEVERE, null, ex);
 		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(MuaHangUI.class.getName()).log(
+			java.util.logging.Logger.getLogger(BanHangUI.class.getName()).log(
 					java.util.logging.Level.SEVERE, null, ex);
 		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(MuaHangUI.class.getName()).log(
+			java.util.logging.Logger.getLogger(BanHangUI.class.getName()).log(
 					java.util.logging.Level.SEVERE, null, ex);
 		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(MuaHangUI.class.getName()).log(
+			java.util.logging.Logger.getLogger(BanHangUI.class.getName()).log(
 					java.util.logging.Level.SEVERE, null, ex);
 		}
+		// </editor-fold>
+		// </editor-fold>
 		// </editor-fold>
 		// </editor-fold>
 
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new MuaHangUI().setVisible(true);
+				new BanHangUI().setVisible(true);
 			}
 		});
 	}
